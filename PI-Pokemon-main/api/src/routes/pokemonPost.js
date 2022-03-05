@@ -1,27 +1,29 @@
 const router = require('express').Router();  
-const { Pokemon } = require('../db')
+const { Pokemon, Type } = require('../db')
 
 router.post('/' , async (req , res) =>{  
     try{ 
-        const {id , name , weight , height , hp , attack,  defense , speed } = req.body 
-        await Pokemon.findOrCreate({ 
+        const { name , hp , attack , defense , speed,  height , weight , type } = req.body 
+        const pokemon = await Pokemon.create({  
+                name: name,
+                hp: hp, 
+                attack: attack, 
+                defense: defense, 
+                speed: speed, 
+                height: height, 
+                weight: weight, 
+        })      
+        let typeDb = await Type.findAll({ 
             where: { 
-                id,  
-                name,
-                weight, 
-                height, 
-                hp, 
-                attack, 
-                defense, 
-                speed, 
-            } 
+                name: type
+            }
         }) 
-        // const allPk = await Pokemon.findAll() 
-        // res.json(allPk)
+        await pokemon.addType(typeDb)   
+        
+        res.send("pokemon succes") 
     }catch(err){ 
-        console.log(err)
+        res.send(err)
     }
-
 })
 
 module.exports = router
