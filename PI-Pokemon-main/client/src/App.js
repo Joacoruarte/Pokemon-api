@@ -1,10 +1,18 @@
 import './App.css';
+import { Route } from "react-router-dom"; 
+import inicio from './components/inicio/inicio'; 
+import home from './components/home/home'; 
+import pokemon from './components/pokemonDetail/pokemon' 
+import newpk from './components/newPokemon/newpk'
 
 function App() {
   return (
-    <div className="App">
-      <h1>Henry Pokemon</h1>
-    </div>
+    <> 
+      <Route exact path='/' component={inicio} /> 
+      <Route exact path='/home' component={home} /> 
+      <Route exact path='/detail' component={pokemon} /> 
+      <Route exact path='/create' component={newpk} /> 
+    </>
   );
 }
 
