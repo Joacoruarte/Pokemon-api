@@ -43,7 +43,7 @@ async function pokemonsData(){
     
         const allPokemons = pk.map(e => { 
             return { 
-            name: e.name, 
+            name: (e.name[0].toUpperCase() + e.name.slice(1)), 
             id: e.id, 
             weight: e.weight,  
             height: e.height, 

@@ -6,7 +6,7 @@ const { Type } = require('../db');
 
 router.get('/' , async (req , res) => {  
     try{ 
-        const type = await utils.types()
+        const type = await utils.types() 
         const tipo = type.forEach(async(e) => { 
             await Type.findOrCreate({ 
                 where: {
@@ -14,7 +14,7 @@ router.get('/' , async (req , res) => {
                     name: e.name,
                 }
             })
-    }) 
+    })  
     const allData = await Type.findAll() 
     res.json(allData.map(e => e.toJSON()))
     } 

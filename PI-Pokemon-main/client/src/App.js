@@ -10,7 +10,7 @@ function App() {
     <> 
       <Route exact path='/' component={inicio} /> 
       <Route exact path='/home' component={home} /> 
-      <Route exact path='/detail' component={pokemon} /> 
+      <Route exact path='/detail/:id' component={pokemon} /> 
       <Route exact path='/create' component={newpk} /> 
     </>
   );
