@@ -1,6 +1,7 @@
 import React ,{ useEffect } from 'react' // useEffect 
 import { useDispatch , useSelector} from 'react-redux';  //useSelector
-import { getAllPokemons , filterAZ , pokemonName , refreshPokemons , getTypes} from '../../actions';    
+import { Link } from 'react-router-dom';
+import { getAllPokemons , orders , pokemonName , refreshPokemons , getTypes , filterType} from '../../actions';    
 import Cards from '../cards/Cards';
 import Spin from '../spin/spin';  //Spin de carga
 import './home.css'
@@ -51,11 +52,16 @@ export default function Home() {
 
   function handleSubmit(event){ 
     event.preventDefault() 
-    dispatch(pokemonName(name))
+    dispatch(pokemonName(name)) 
   } 
 
   function handleOnChange (event) {  
-    dispatch(filterAZ(event.target.value))   
+    dispatch(orders(event.target.value))   
+    setAlfa(event.target.value)
+  }
+  
+  function handleOnfilter (event) {  
+    dispatch(filterType(event.target.value))   
     setAlfa(event.target.value)
   }
   
@@ -89,6 +95,12 @@ export default function Home() {
           <option value='az'>A-Z</option> 
           <option value='za'>Z-A</option>  
         </select> 
+       
+        <select defaultValue='order' onChange={(e) => handleOnChange(e)}> 
+          <option disabled value='order'>API / DB</option>
+          <option value='api'>Api</option> 
+          <option value='db'>DB</option>  
+        </select> 
 
 
         <select defaultValue='Strong' onChange={(e) => handleOnChange(e)}> 
@@ -97,14 +109,15 @@ export default function Home() {
           <option value='hight'>Hight-attact</option>  
         </select>   
        
-        <select defaultValue='Tipos' onChange={(e) => handleOnChange(e)}> 
+        <select defaultValue='Tipos' onChange={(e) => handleOnfilter(e)}> 
           <option disabled value='Tipos'>Types</option>
           {type && type.map(e => ( 
             <option key={e.id} value={e.name}>{e.name}</option>
           ))} 
         </select>   
 
-        <button onClick={() => dispatch(refreshPokemons())}>Refresh Pokemons</button>
+        <button onClick={() => dispatch(refreshPokemons('reset'))}>Refresh Pokemons</button> 
+        <button><Link to={`/create`}>Crea tu propio pokemon</Link></button>
       </div>  
       <div> 
         {state.length === 0 ? <Spin />  :  <Cards pokemon={filterPokemons()}/>}

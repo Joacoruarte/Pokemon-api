@@ -18,8 +18,9 @@ async function dbPokemon(){
                 defense: e.defense, 
                 speed: e.speed, 
                 height: e.height, 
-                weight: e.weight,
-                types: e.types.map(e=> e.name)
+                weight: e.weight, 
+                img: e.img, 
+                type: e.types.map(e=> e.name)
         }
     }) 
     jss.forEach(e=> data.push(e))

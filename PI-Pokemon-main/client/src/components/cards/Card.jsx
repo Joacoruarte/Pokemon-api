@@ -7,8 +7,12 @@ export default function Card(props) {
   return (
     <div key={id} className={style.card}> 
         <img src={img} alt='cargando..' className={style.img}/> 
-        <Link to={`/detail/${id}`}><h2>{name}</h2> </Link>
-        <span>{type}</span>
+        <Link to={`/detail/${id}`}><h2>{name}</h2> </Link> 
+        <div className={style.type}> 
+          {type && type.map(e => ( 
+            <p key={e}>{e}</p>
+          ))}
+        </div>
     </div>
   )
 }

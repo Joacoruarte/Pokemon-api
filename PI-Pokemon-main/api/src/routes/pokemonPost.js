@@ -3,7 +3,7 @@ const { Pokemon, Type } = require('../db')
 
 router.post('/' , async (req , res) =>{  
     try{ 
-        const { name , hp , attack , defense , speed,  height , weight , type } = req.body 
+        const { name , hp , attack , defense , speed,  height , weight , img , type } = req.body 
         const pokemon = await Pokemon.create({  
                 name: name,
                 hp: hp, 
@@ -12,6 +12,7 @@ router.post('/' , async (req , res) =>{
                 speed: speed, 
                 height: height, 
                 weight: weight, 
+                img: img, 
         })      
         let typeDb = await Type.findAll({ 
             where: { 

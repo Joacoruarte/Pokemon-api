@@ -1,0 +1,23 @@
+.divForm{ 
+    margin: 0px auto ;
+    border: 1px solix #ccc;  
+    width: 80%; 
+    display: flex;
+} 
+/* .errorDiv{ 
+    margin-top: 2rem;
+    height: 200px;
+} */
+
+.button{ 
+    height: 2rem;
+    margin-top: 2rem;
+}
+
+.form{ 
+    display: flex ;  
+    flex-direction: column; 
+    width:30rem ;  
+    margin: 0px auto ;  
+    gap: 3px;
+}
