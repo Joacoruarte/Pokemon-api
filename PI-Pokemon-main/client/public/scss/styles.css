@@ -1,0 +1,453 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Nunito:wght@200;300;400&display=swap");
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,900);
+.linkCard {
+  text-decoration: none;
+}
+.linkCard .card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #cf8c8c;
+  border-radius: 10px;
+  padding: 10px;
+  width: 7rem;
+  transition: all 300ms;
+}
+.linkCard .card:hover {
+  transform: scale(1.1, 1.1);
+  background-color: #523737;
+}
+.linkCard .card:hover h2 {
+  color: #fff;
+}
+.linkCard .card h2 {
+  font-size: 1rem;
+  color: black;
+  transition: all 300ms;
+}
+.linkCard .card h2:hover {
+  color: #fff;
+}
+.linkCard .card img {
+  height: 100px;
+  width: 100px;
+  max-width: 100px;
+  max-width: 100px;
+  margin: 0px auto;
+  object-fit: cover;
+}
+.linkCard .card .type {
+  display: flex;
+  margin: -10px auto;
+  text-align: center;
+}
+.linkCard .card .type p {
+  margin-left: 5px;
+  font-weight: 500;
+  text-transform: capitalize;
+  text-align: center;
+  color: black;
+  font-family: "Nunito";
+}
+
+#container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-left: 3.5rem;
+  margin-top: 3rem;
+}
+
+.logic {
+  display: flex;
+  width: 70%;
+  text-align: center;
+  margin: 0px auto;
+}
+
+.pkimgs {
+  height: 200px;
+}
+
+.titulo {
+  display: flex;
+  flex-direction: column;
+}
+.titulo h1 {
+  margin-bottom: -1rem;
+  font-family: "Nunito";
+  text-transform: uppercase;
+}
+.titulo h2 {
+  font-family: "Nunito";
+}
+
+.form {
+  line-height: 170px;
+  margin-left: 1rem;
+}
+.form label {
+  font-weight: 600;
+}
+.form input {
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 1px 1px 4px #ccc inset;
+  transition: all 300ms;
+}
+.form input:focus {
+  color: #555;
+}
+.form button {
+  margin-left: 10px;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  border: 1px solid transparent;
+  background: linear-gradient(to bottom, #3eb8e5 0%, #2ca0ca 100%);
+  transition: all 300ms;
+}
+.form button:hover {
+  box-shadow: 0px 0px 3px gray;
+}
+
+#apidb,
+#types,
+#fuerza,
+#order {
+  outline: none;
+  border-radius: 2px;
+  border: 1px solid #bbbb9c;
+  background-color: antiquewhite;
+}
+
+.buttons {
+  display: flex;
+  width: 96.87%;
+  gap: 1rem;
+  margin: 0px auto;
+  background-color: #242424e6;
+  height: 2rem;
+  padding: 1rem;
+  justify-content: center;
+}
+.buttons span {
+  line-height: 28px;
+  color: white;
+}
+
+#crearpk {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 9px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  border: 1px solid transparent;
+  background: linear-gradient(to bottom, #3eb8e5 0%, #2ca0ca 100%);
+  transition: all 300ms;
+}
+#crearpk:hover {
+  box-shadow: 0px 0px 3px gray;
+}
+#crearpk a {
+  text-decoration: none;
+  color: white;
+}
+
+#refresh {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  border: 1px solid transparent;
+  background: linear-gradient(to bottom, #3eb8e5 0%, #2ca0ca 100%);
+  transition: all 300ms;
+}
+#refresh:hover {
+  box-shadow: 0px 0px 3px gray;
+}
+
+#anterior,
+#siguiente {
+  cursor: pointer;
+  padding: 2px;
+  height: 32px;
+  width: 5%;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  border: 1px solid transparent;
+  background: linear-gradient(to bottom, #3eb8e5 0%, #2ca0ca 100%);
+  transition: all 300ms;
+}
+#anterior:hover,
+#siguiente:hover {
+  box-shadow: 0px 0px 3px gray;
+}
+
+.spinDiv {
+  padding: 10px;
+  width: 80%;
+  margin: 2rem auto;
+  background-color: transparent;
+  font-size: 13px;
+}
+.spinDiv p {
+  font-family: "Nunito";
+  font-weight: 600;
+}
+
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: #444;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
+  }
+}
+.div {
+  text-align: center;
+  width: 57%;
+  margin-top: 16px;
+  margin-bottom: -16px;
+}
+
+.button {
+  padding: 5px;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  border: 1px solid transparent;
+  background: linear-gradient(to bottom, #3eb8e5 0%, #2ca0ca 100%);
+  transition: all 300ms;
+}
+.button a {
+  text-decoration: none;
+  color: white;
+}
+.button:hover {
+  box-shadow: 0px 0px 3px gray;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 0px auto;
+  border-radius: 10px;
+  box-shadow: 14px 9px 20px 2px #0101012e;
+  margin-top: 3rem;
+}
+.container .bk {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/barbarian-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin-top: -3rem;
+  text-align: center;
+  border-radius: 12px 12px 0px 0px;
+  width: 100.1%;
+}
+.container .bk #pokeimg {
+  height: 12rem;
+}
+.container .container1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Lato";
+}
+.container .container1 h2 {
+  font-size: 1rem;
+}
+.container .container1 .tipo {
+  display: flex;
+  margin: -10px auto;
+  text-align: center;
+}
+.container .container1 .tipo p {
+  margin-left: 5px;
+  text-align: center;
+  color: black;
+  text-transform: capitalize;
+}
+.container .container1 .list {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+.container .container1 .list li {
+  font-size: 20px;
+}
+.container .container1 .list2 {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.divForm {
+  margin: 0px auto;
+  border: 1px solix #ccc;
+  width: 80%;
+  display: flex;
+}
+.divForm .button {
+  height: 2rem;
+  margin-top: 2rem;
+}
+.divForm .forms {
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+  margin-left: 3rem;
+  gap: 3px;
+}
+.divForm .forms label {
+  font-weight: 600;
+}
+.divForm .forms input {
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 1px 1px 4px #ccc inset;
+  transition: all 300ms;
+}
+.divForm .forms input:focus {
+  color: #555;
+}
+.divForm .forms .typess {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.divForm .forms #button {
+  display: flex;
+  margin-top: 1rem;
+}
+.divForm .forms #button button {
+  cursor: pointer;
+  padding: 5px;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  border: 1px solid transparent;
+  background: linear-gradient(to bottom, #3eb8e5 0%, #2ca0ca 100%);
+  transition: all 300ms;
+}
+.divForm .forms #button button:hover {
+  box-shadow: 0px 0px 3px gray;
+}
+.divForm .errorDiv {
+  display: block;
+  position: fixed;
+  right: 1rem;
+  width: 30%;
+}
+.divForm .errorDiv h1 {
+  text-decoration: underline;
+}
+.divForm .errorDiv li {
+  font-size: 14px;
+  color: #dd0909;
+  list-style: none;
+}
+
+#img {
+  background-image: url("../tumblr_ndkx9tXfcs1stlfk5o1_1280.gif");
+  background-repeat: repeat-y repeat-x;
+  background-size: 40%;
+  height: 720px;
+}
+#img .containers {
+  display: flex;
+  height: 576px;
+  margin: 0px auto;
+  width: 51%;
+  justify-content: center;
+  flex-direction: column;
+}
+#img .containers .welcome {
+  margin: 0px auto;
+  background-color: #f6e37a;
+  font-family: "Nunito";
+  font-weight: bold;
+  text-align: center;
+}
+#img .containers #link {
+  text-decoration: none;
+}
+#img .containers #link div {
+  display: flex;
+  justify-content: center;
+  margin: 0px auto;
+}
+#img .containers #link .home {
+  background: #FBCA1F;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0.6em 1.3em;
+  font-weight: 900;
+  font-size: 18px;
+  border: 3px solid black;
+  border-radius: 0.4em;
+  box-shadow: 0.1em 0.1em;
+}
+#img .containers #link .home:hover {
+  transform: translate(-0.05em, -0.05em);
+  box-shadow: 0.15em 0.15em;
+}
+#img .containers #link .home:active {
+  transform: translate(0.05em, 0.05em);
+  box-shadow: 0.05em 0.05em;
+}
+
+body {
+  background-color: #fbf8ccec;
+  height: 720px;
+}
+
+/*# sourceMappingURL=styles.css.map */

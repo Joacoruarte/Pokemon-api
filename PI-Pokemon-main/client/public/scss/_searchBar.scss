@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Nunito:wght@200;300;400&display=swap'); 
+$color-boton: linear-gradient(to bottom, #3eb8e5 0%, #2ca0ca 100%);
+.logic{  
+    display: flex;
+    width: 70%;
+    text-align: center; 
+    margin: 0px auto;
+} 
+
+.pkimgs{ 
+    height: 200px;
+} 
+
+.titulo{ 
+    display: flex; 
+    flex-direction: column; 
+    h1{ 
+        margin-bottom: -1rem; 
+        font-family: 'Nunito'; 
+        text-transform: uppercase;
+    } 
+    h2{ 
+        font-family: 'Nunito';
+    }
+} 
+
+.form{  
+    line-height: 170px; 
+    margin-left: 1rem;
+    label{
+        font-weight: 600;
+    } 
+    input{ 
+        outline: none; 
+        border: 1px solid #ccc; 
+        border-radius: 5px; 
+        padding: 5px; 
+        box-shadow: 1px 1px 4px #ccc inset; 
+        transition: all 300ms;
+
+        &:focus{ 
+            color: #555;
+        }
+    } 
+    button{
+        margin-left: 10px; 
+        padding: 5px;
+        cursor: pointer;
+        border-radius: 5px; 
+        font-weight: bold;
+        color: white;
+        border: 1px solid transparent; 
+        background: $color-boton;  
+        transition: all 300ms;
+        
+        &:hover{ 
+            box-shadow: 0px 0px 3px gray;
+        }
+    }
+} 
+
+
+#apidb, 
+#types, 
+#fuerza, 
+#order{ 
+    outline: none; 
+    border-radius: 2px;  
+    border: 1px solid rgb(187, 187, 156);
+    background-color: antiquewhite;
+}
+
+
+.buttons{ 
+    display: flex; 
+    width: 96.87%;
+    gap: 1rem; 
+    margin: 0px auto;   
+    background-color: #242424e6;
+    height: 2rem;
+    padding: 1rem;
+    justify-content: center;
+    span{ 
+        line-height: 28px; 
+        color: white;
+    }
+} 
+
+#crearpk{  
+    display: flex; 
+    flex-wrap: nowrap;
+    padding: 9px;
+    cursor: pointer;
+    border-radius: 5px; 
+    font-weight: bold;
+    color: white;
+    border: 1px solid transparent;
+    background: $color-boton;   
+    transition: all 300ms;
+
+    &:hover{ 
+        box-shadow: 0px 0px 3px gray;
+    }
+    a{ 
+        text-decoration: none; 
+        color: white;
+    }
+}
+
+
+#refresh{   
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px; 
+    font-weight: bold;
+    color: white;
+    border: 1px solid transparent;
+    background: $color-boton; 
+    transition: all 300ms;
+
+    &:hover{ 
+        box-shadow: 0px 0px 3px gray;
+    }
+}  
+
+#anterior,
+#siguiente{ 
+    cursor: pointer;
+    padding: 2px; 
+    height: 32px;
+    width: 5%;
+    border-radius: 5px; 
+    font-weight: bold;
+    color: white;
+    border: 1px solid transparent;
+    background: $color-boton; 
+    transition: all 300ms;
+
+    &:hover{ 
+        box-shadow: 0px 0px 3px gray;
+    }
+}
+

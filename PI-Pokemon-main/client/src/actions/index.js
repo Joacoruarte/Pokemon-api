@@ -42,7 +42,8 @@ export function pokemonDetail(id){
         const payload = await response.data
         dispatch({type: GET_DETAIL , payload})
     }
-}
+} 
+
 
 export function pokemonName(name){ 
     name = name[0].toUpperCase() + name.slice(1) 

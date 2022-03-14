@@ -80,6 +80,10 @@ export default function reducer(state = initialState, { type , payload}){
             })
             
             return {...state , allPokemons: arr2 }
+          } 
+          if(payload === 'vaciar'){ 
+              state.pokemonDetail = {} 
+              return {...state }
           }
           break;        
         } 

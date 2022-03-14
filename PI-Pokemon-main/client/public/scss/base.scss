@@ -1,0 +1,11 @@
+@use 'cards'; 
+@use 'searchBar'; 
+@use 'spin'; 
+@use 'pokemonDetail';
+@use 'formPokemon'; 
+@use 'inicio';
+
+body{ 
+    background-color: #fbf8ccec; 
+    height: 720px;
+}

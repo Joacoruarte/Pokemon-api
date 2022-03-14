@@ -1,10 +1,9 @@
 import React from 'react'
 import Card from './Card' 
-import style from './Cards.module.css'
 
 export default function Cards({pokemon}) {
   return (
-    <div id={style.container}> 
+    <div id='container'> 
         {pokemon.map((poke)=> 
             <Card  
             key={poke.id}  

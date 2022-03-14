@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux' 
-import { pokemonDetail } from '../../actions' 
+import { orders, pokemonDetail } from '../../actions' 
 import { Link, useParams } from 'react-router-dom' 
-import './pokemon.css'
 import Spin from '../spin/spin'
 
 export default function Pokemon() { 
@@ -21,7 +20,7 @@ export default function Pokemon() {
       {Object.keys(state).length === 0 ? <Spin/> : 
       <> 
         <div className='div'> 
-          <button className='button'><Link to={`/home`}>Go to home</Link></button>
+          <button className='button' onClick={() => dispatch(orders('vaciar'))}><Link to={`/home`}>Go to home</Link></button>
         </div> 
         <div className='container' key={state.id}>  
             <div className='bk'> 
@@ -30,18 +29,22 @@ export default function Pokemon() {
           <div className='container1'>  
             <h1>{ state.name}</h1>  
             <h2>Numero de pokemon: {state.id}</h2>
-            <span>{state.type}</span> 
+            <div className='tipo'> 
+            {state.type && state.type.map(e => ( 
+              <p key={e}>{e}</p>
+            ))}
+            </div>
             
             <ul className='list'> 
-              <li>Hp: {state.hp}</li>
-              <li>Attack: {state.attack}</li>
-              <li>Defense: {state.defense}</li>
-              <li>Speed: {state.speed}</li>
+              <li>💗 {state.hp}</li>
+              <li>⚒ {state.attack}</li>
+              <li>🛡 {state.defense}</li>
+              <li>💨 {state.speed}</li>
             </ul> 
 
             <ul className='list2'> 
-              <li>Altura: {state.height} </li>
-              <li>Peso: {state.weight}</li>      
+              <li>Altura:   {state.height} </li>
+              <li>Peso:   {state.weight}</li>      
             </ul>  
           </div>  
         </div>           

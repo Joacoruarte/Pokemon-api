@@ -7,12 +7,20 @@ async function dbPokemon(){
     try{ 
        const data = await pokemonsData()
 
-       const dbPokemon = await Pokemon.findAll({include:{ model: Type, attributes: ["name"] , through: { attributes: [],}}})     
+       const dbPokemon = await Pokemon.findAll({ 
+           include:{ 
+               model: Type,  
+               attributes: ["name"] ,  
+               through: {  
+                   attributes: [], 
+                } 
+            } 
+        })     
        let jss = dbPokemon.map(e => e.toJSON()) 
        jss = jss.map(e=> {  
             return { 
                 id: e.id, 
-                name: e.name, 
+                name: (e.name[0].toUpperCase() + e.name.slice(1)), 
                 hp: e.hp, 
                 attack: e.attack, 
                 defense: e.defense, 
