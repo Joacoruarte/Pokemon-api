@@ -65,10 +65,12 @@ $color-boton: linear-gradient(to bottom, #3eb8e5 0%, #2ca0ca 100%);
             margin: -10px auto; 
             text-align: center;
             p{ 
-                margin-left: 5px; 
+                margin-left: 5px;  
+                font-weight: bold;
                 text-align: center; 
                 color: black; 
-                text-transform: capitalize;
+                text-transform: capitalize; 
+                font-family: 'Nunito';
             }
         }
         .list{ 
@@ -77,13 +79,16 @@ $color-boton: linear-gradient(to bottom, #3eb8e5 0%, #2ca0ca 100%);
             list-style: none; 
 
             li{ 
-                font-size: 20px;
+                font-size: 20px; 
+                font-family: 'Nunito';
             }
         }  
         .list2{ 
-            display: flex;  
+            display: flex;   
+            font-weight: bold;
             gap: 1rem;
-            list-style: none;
+            list-style: none; 
+            font-family: 'Nunito';
         }
     } 
 }  

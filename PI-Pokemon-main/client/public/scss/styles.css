@@ -20,8 +20,13 @@
 .linkCard .card:hover h2 {
   color: #fff;
 }
+.linkCard .card:hover .type p {
+  color: #fff;
+}
 .linkCard .card h2 {
   font-size: 1rem;
+  font-family: "Nunito";
+  font-weight: bold;
   color: black;
   transition: all 300ms;
 }
@@ -120,9 +125,9 @@
 #fuerza,
 #order {
   outline: none;
-  border-radius: 2px;
+  border-radius: 5px;
   border: 1px solid #bbbb9c;
-  background-color: antiquewhite;
+  background-color: #FBF8CF;
 }
 
 .buttons {
@@ -245,6 +250,26 @@
     height: 32px;
   }
 }
+.spin2 {
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto;
+  justify-content: center;
+  width: 60%;
+}
+.spin2 h1 {
+  text-align: center;
+  font-family: "Nunito";
+  font-size: 2rem;
+}
+.spin2 img {
+  height: 450px;
+  border-radius: 4px;
+  margin: 0px auto;
+  text-align: center;
+  width: 450px;
+}
+
 .div {
   text-align: center;
   width: 57%;
@@ -308,9 +333,11 @@
 }
 .container .container1 .tipo p {
   margin-left: 5px;
+  font-weight: bold;
   text-align: center;
   color: black;
   text-transform: capitalize;
+  font-family: "Nunito";
 }
 .container .container1 .list {
   display: flex;
@@ -319,11 +346,14 @@
 }
 .container .container1 .list li {
   font-size: 20px;
+  font-family: "Nunito";
 }
 .container .container1 .list2 {
   display: flex;
+  font-weight: bold;
   gap: 1rem;
   list-style: none;
+  font-family: "Nunito";
 }
 
 .divForm {
@@ -448,6 +478,7 @@
 body {
   background-color: #fbf8ccec;
   height: 720px;
+  font-family: "Nunito";
 }
 
 /*# sourceMappingURL=styles.css.map */

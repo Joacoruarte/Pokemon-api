@@ -82,7 +82,7 @@ export function refreshPokemons(payload){
 
 export function postPokemon(pokemon){ 
     return async function(dispatch){ 
-        const response = await axios.post(`http://localhost:3001/pokemons` , pokemon) 
+        await axios.post(`http://localhost:3001/pokemons` , pokemon) 
         dispatch({type: POST_POKEMON })
     }
 } 

@@ -2,16 +2,17 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux' 
 import { orders, pokemonDetail } from '../../actions' 
 import { Link, useParams } from 'react-router-dom' 
-import Spin from '../spin/spin'
+import Spin from '../spin/spin2'  
+
 
 export default function Pokemon() { 
   
+  let { id } = useParams()
   const dispatch = useDispatch() 
   const state = useSelector(state => state.pokemonDetail) 
   
-  let { id } = useParams()
-  useEffect(() => {   
-    dispatch(pokemonDetail(id)) 
+  useEffect(() => {    
+      dispatch(pokemonDetail(id)) 
   }, [dispatch]) 
 
 
@@ -22,7 +23,7 @@ export default function Pokemon() {
         <div className='div'> 
           <button className='button' onClick={() => dispatch(orders('vaciar'))}><Link to={`/home`}>Go to home</Link></button>
         </div> 
-        <div className='container' key={state.id}>  
+        <div className='container' key={id}>  
             <div className='bk'> 
               <img src={state.img} alt='cargando..' id='pokeimg' />  
             </div>
@@ -37,7 +38,7 @@ export default function Pokemon() {
             
             <ul className='list'> 
               <li>💗 {state.hp}</li>
-              <li>⚒ {state.attack}</li>
+              <li>⚔ {state.attack}</li>
               <li>🛡 {state.defense}</li>
               <li>💨 {state.speed}</li>
             </ul> 

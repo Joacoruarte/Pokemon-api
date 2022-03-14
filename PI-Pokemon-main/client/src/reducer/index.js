@@ -63,11 +63,11 @@ export default function reducer(state = initialState, { type , payload}){
           } 
           if(payload === 'api'){ 
             let arr = [] 
-            state.allPokemons.map((e)=> { 
+            state.auxPokemons.map((e)=> { 
                 if(typeof e.id === 'number'){ 
                    arr.push(e)
-                   return e 
                 } 
+                return e 
             }) 
             return {...state , allPokemons: arr}
           }
@@ -76,7 +76,8 @@ export default function reducer(state = initialState, { type , payload}){
             state.auxPokemons.map(e=> { 
                 if(typeof e.id === 'string'){ 
                   arr2.push(e)
-              }
+              } 
+              return e
             })
             
             return {...state , allPokemons: arr2 }
@@ -93,9 +94,9 @@ export default function reducer(state = initialState, { type , payload}){
                 let arr = []
                 state.auxPokemons.map((e)=> { 
                     if(e.type[0] === payload || e.type[1] === payload){ 
-                        arr.push(e)
-                    } 
-
+                       return arr.push(e)
+                    }  
+                    return e
                 }) 
                 console.log(arr)
                 return {...state , allPokemons: arr }
@@ -117,7 +118,7 @@ export default function reducer(state = initialState, { type , payload}){
                     if(e.name.toLowerCase() === payload[0].name || e.name === payload[0].name){ 
                        return arr.push(e)
                     } 
-
+                    return e
                 }) 
                 return { ...state , allPokemons: arr}
             }else if(payload[0] === null){ 
@@ -129,7 +130,8 @@ export default function reducer(state = initialState, { type , payload}){
             if(payload === 'reset'){ 
                 let arr = [] 
                 state.auxPokemons.map((e)=> { 
-                    arr.push(e)         
+                    arr.push(e)  
+                    return e        
                 }) 
             return { ...state , allPokemons: arr}
             } 

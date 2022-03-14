@@ -22,11 +22,7 @@ export default function Home() {
   }, [dispatch])
   
   useEffect(() => { 
-    if(state.length > 0){ 
-      return 1
-    }else { 
       dispatch(getAllPokemons())
-    }
   },[dispatch])   
   
   const filterPokemons = () => { 
@@ -67,7 +63,8 @@ export default function Home() {
 // HANDLER DEL SELECT DE TYPES  
   function handleOnfilter (event) {  
     dispatch(filterType(event.target.value))   
-    setAlfa(event.target.value)
+    setAlfa(event.target.value) 
+    console.log(alfa)
   }
   
   return (
@@ -89,13 +86,13 @@ export default function Home() {
       </div> 
       <div className='buttons'> 
         <button id='anterior' onClick={prevPage}> 
-            <AiFillCaretLeft/>
+          <AiFillCaretLeft/>
         </button> 
 
         <span>{count}/4</span> 
 
         <button id='siguiente' onClick={nextPage}> 
-            <AiFillCaretRight/>
+          <AiFillCaretRight/>
         </button> 
 
         <select id='order' defaultValue='order' onChange={(e) => handleOnChange(e)}> 
