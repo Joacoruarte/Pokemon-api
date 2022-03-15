@@ -13,7 +13,7 @@ export default function Pokemon() {
   
   useEffect(() => {    
       dispatch(pokemonDetail(id)) 
-  }, [dispatch]) 
+  }, [id , dispatch]) 
 
 
   return (  

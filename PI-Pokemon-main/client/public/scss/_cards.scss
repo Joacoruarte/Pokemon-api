@@ -42,7 +42,8 @@
         } 
 
         .type{ 
-            display: flex; 
+            display: flex;  
+            flex-wrap: wrap;
             margin: -10px auto; 
             text-align: center;
             p{ 

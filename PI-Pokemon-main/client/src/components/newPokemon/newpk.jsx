@@ -29,7 +29,7 @@ export function validate(pokemon){
   }else if(!typeof pokemon.attack === 'number'){ 
     errors.attack = 'El valor debe ser un numero'
   }else if(pokemon.attack < 10){ 
-    errors.hp = 'El ataque tiene que ser como minimo 10'
+    errors.attack = 'El ataque tiene que ser como minimo 10'
   }
 
   //DEFENSA
@@ -38,7 +38,7 @@ export function validate(pokemon){
   }else if(!typeof pokemon.defense === 'number'){ 
     errors.defense = 'El valor debe ser un numero'
   }else if(pokemon.defense < 10){ 
-    errors.hp = 'La defensa tiene que ser como minimo 10'
+    errors.defense = 'La defensa tiene que ser como minimo 10'
   }
 
   //VELOCIDAD
@@ -47,25 +47,25 @@ export function validate(pokemon){
   }else if(!typeof pokemon.speed === 'number'){ 
     errors.speed = 'El valor debe ser un numero'
   }else if(pokemon.speed < 10){ 
-    errors.hp = 'La velocidad tiene que ser como minimo 10'
+    errors.speed = 'La velocidad tiene que ser como minimo 10'
   } 
 
   //PESO
   if(!pokemon.height){ 
-    errors.height = 'El peso es requerido'
+    errors.height = 'La altura es requerida'
   }else if(!typeof pokemon.height === 'number'){ 
     errors.height = 'El valor debe ser un numero'
-  }else if(pokemon.height < 10){ 
-    errors.hp = 'La altura tiene que ser 20 o superior'
+  }else if(pokemon.height < 20){ 
+    errors.height = 'La altura tiene que ser 20 o superior'
   } 
 
   //ALTURA 
   if(!pokemon.weight){ 
-    errors.weight = 'La altura es requerida'
+    errors.weight = 'El peso es requerido'
   }else if(!typeof pokemon.weight === 'number'){ 
     errors.weight = 'El valor debe ser un numero'
-  }else if(pokemon.weight < 10){ 
-    errors.hp = 'El peso tiene que ser como minimo 30'
+  }else if(pokemon.weight < 30){ 
+    errors.weight = 'El peso tiene que ser como minimo 30'
   }  
 
   return errors
@@ -98,7 +98,7 @@ export default function Newpk() {
     setErrors(validate({ 
       ...pokemon, 
       [e.target.name]: e.target.value
-    }))
+    })) 
   } 
   const handleSelectChange = (event) => {  
     if(!select.find(e => e === event.target.value)){ 
@@ -112,8 +112,7 @@ export default function Newpk() {
   } 
 
   const handleOnSubmit = (event) => { 
-    event.preventDefault();  
-    console.log(pokemon)  
+    event.preventDefault();   
     if(Object.keys(errors).length > 0){ 
       alert('Debes rellenar todos los campos')
     }else{ 
@@ -128,7 +127,7 @@ export default function Newpk() {
           alert('Pokemon creado correctamente!') 
           setTimeout(() => {
             history.push('/home')
-          }, 1000);        
+          }, 2000);        
         }else{ 
           alert('Debes rellenar todos los campos antes de enviar')
         }        
@@ -200,9 +199,9 @@ export default function Newpk() {
         {errors.hp && <li>-{errors.hp}</li>}
         {errors.attack && <li>-{errors.attack}</li>}
         {errors.defense && <li>-{errors.defense}</li>}
+        {errors.weight && <li>-{errors.weight}</li>}
         {errors.speed && <li>-{errors.speed}</li>}
         {errors.height && <li>-{errors.height}</li>}
-        {errors.weight && <li>-{errors.weight}</li>}
         {errors.type && <li>-{errors.type}</li>} 
         {select.length === 0 && <li>-Debes seleccionar un tipo como minimo</li>}          
         </ul>

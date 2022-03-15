@@ -43,6 +43,7 @@
 }
 .linkCard .card .type {
   display: flex;
+  flex-wrap: wrap;
   margin: -10px auto;
   text-align: center;
 }

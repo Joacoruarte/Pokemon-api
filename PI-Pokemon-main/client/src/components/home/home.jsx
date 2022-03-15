@@ -3,7 +3,7 @@ import { useDispatch , useSelector} from 'react-redux';  //useSelector
 import { Link } from 'react-router-dom';
 import { getAllPokemons , orders , pokemonName , refreshPokemons , getTypes , filterType} from '../../actions';    
 import Cards from '../cards/Cards';
-import Spin from '../spin/spin';  //Spin de carga 
+import Spin from '../spin/spin';  //Spin de carga  
 import { AiFillCaretLeft , AiFillCaretRight } from "react-icons/ai";
 
 export default function Home() { 
@@ -14,7 +14,7 @@ export default function Home() {
   const [currentPage, setCurrentPage] = React.useState(0) 
   const dispatch = useDispatch() 
   const state = useSelector(state => state.allPokemons)  
-  const type  = useSelector(state => state.pokemonTypes)   
+  const type  = useSelector(state => state.pokemonTypes)      
 
 
   useEffect(() => { 
@@ -44,13 +44,16 @@ export default function Home() {
 
 
 // HANDLER INPUT DE BUSQUEDA
-  const handleInputChange = (event) =>{  
+  const handleInputChange = (event) =>{   
     setName(event.target.value)
   }
 
 // HANDLER DEL FORM DE TIPO SUBMIT
   function handleSubmit(event){ 
     event.preventDefault() 
+    if(name.length === 0){ 
+      return alert('No puedes buscar un pokemon si el input esta vacio')
+    } 
     dispatch(pokemonName(name)) 
   } 
 
@@ -65,8 +68,8 @@ export default function Home() {
     dispatch(filterType(event.target.value))   
     setAlfa(event.target.value) 
     console.log(alfa)
-  }
-  
+  } 
+
   return (
     <div> 
       <div className='logic'> 
@@ -80,8 +83,8 @@ export default function Home() {
             autoComplete='off' 
             value={name} 
             onChange={(e) => handleInputChange(e)}
-              />  
-            <button type='submit'>BUSCAR</button>
+              />   
+            <button type='submit'>BUSCAR</button> 
           </form>  
       </div> 
       <div className='buttons'> 
