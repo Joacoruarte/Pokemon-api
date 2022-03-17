@@ -172,7 +172,7 @@ export default function Newpk() {
         <input placeholder='altura..' name='height' onChange={handleInputChange} value={pokemon.height} />   
        
 
-        <label>Tipos (Opcional)</label> 
+        <label>Tipos</label> 
 
         <div className='typess'> 
           {state && state.map((e) => ( 

@@ -37,7 +37,7 @@ export default function Pokemon() {
             </div>
             
             <ul className='list'> 
-              <li>💗 {state.hp}</li>
+              <li>💗{state.hp}</li>
               <li>⚔ {state.attack}</li>
               <li>🛡 {state.defense}</li>
               <li>💨 {state.speed}</li>

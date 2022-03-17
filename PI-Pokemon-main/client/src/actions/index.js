@@ -1,13 +1,14 @@
 import axios from 'axios'
+import {  
+    ORDER_PK,  
+    FILTER_TYPE,  
+    POKE_NAME,  
+    GET_POKEMONS,  
+    GET_TYPES, 
+    GET_DETAIL, 
+    POST_POKEMON,  
+    REFRESH_POKEMONS} from './types' 
 
-export const ORDER_PK = 'ORDER_PK'; 
-export const FILTER_TYPE = 'FILTER_TYPE'; 
-export const POKE_NAME = 'POKE_NAME';  
-export const GET_POKEMONS = 'GET_POKEMONS'
-export const GET_TYPES = 'GET_TYPES'
-export const GET_DETAIL = 'GET_DETAIL' 
-export const POST_POKEMON = 'POST_POKEMON' 
-export const REFRESH_POKEMONS = 'REFRESH_POKEMONS'
 
 export function getAllPokemons(){ 
     return async function(dispatch){ 
@@ -19,21 +20,11 @@ export function getAllPokemons(){
 
 export function orders(payload){  
     console.log(payload)
-    return async function(dispatch){  
-        dispatch({ 
-            type: ORDER_PK ,  
-            payload 
-         })
-    }
+    return { type: ORDER_PK , payload }
 }
+
 export function filterType(payload){  
-    console.log(payload)
-    return async function(dispatch){  
-        dispatch({ 
-            type: FILTER_TYPE ,  
-            payload 
-         })
-    }
+    return { type: FILTER_TYPE , payload }
 }
 
 export function pokemonDetail(id){ 
@@ -47,7 +38,6 @@ export function pokemonDetail(id){
 
 export function pokemonName(name){ 
     name = name[0].toUpperCase() + name.slice(1) 
-    console.log(name)
     return async function(dispatch){ 
         try{ 
             let arr = [] 
@@ -73,11 +63,7 @@ export function getTypes(){
 } 
 
 export function refreshPokemons(payload){  
-    return async function(dispatch){ 
-        // const response =  await axios.get(`http://localhost:3001/pokemons`) 
-        // const payload = await response.data
-        dispatch({type: REFRESH_POKEMONS , payload })
-    }
+    return {type: REFRESH_POKEMONS , payload }
 }
 
 export function postPokemon(pokemon){ 

@@ -4,42 +4,50 @@ import { Link } from 'react-router-dom';
 import { getAllPokemons , orders , pokemonName , refreshPokemons , getTypes , filterType} from '../../actions';    
 import Cards from '../cards/Cards';
 import Spin from '../spin/spin';  //Spin de carga  
-import { AiFillCaretLeft , AiFillCaretRight } from "react-icons/ai";
+
 
 export default function Home() { 
 
+  //ESTADOS LOCALES
   const [alfa , setAlfa] = React.useState('') 
   const [name , setName] = React.useState('') 
   const [count, setCount] = React.useState(1) 
-  const [currentPage, setCurrentPage] = React.useState(0) 
+  const [currentPage, setCurrentPage] = React.useState(0)  
+  
+  //ESTADOS && ACTIONS DE REDUX
   const dispatch = useDispatch() 
   const state = useSelector(state => state.allPokemons)  
   const type  = useSelector(state => state.pokemonTypes)      
 
-
+  //CUANDO SE MONTA EL COMPONENTE SE TRAE LOS TIPOS
   useEffect(() => { 
     dispatch(getTypes())
   }, [dispatch])
   
+  //CUANDO SE MONTA EL COMPONENTE SE TRAE LOS POKEMONS
   useEffect(() => { 
       dispatch(getAllPokemons())
   },[dispatch])   
   
+  //FILTRADO DE PAGINACION
   const filterPokemons = () => { 
     return state.slice(currentPage , currentPage + 12)
   } 
 
+  //FUNCION PARA QUE AUMENTE EN 1 MI PAGINA Y MUTE MI STATE
   const nextPage = () => { 
     if(filterPokemons().length === 12){ 
       if(currentPage < state.length - 12){  
         if(count < 4) setCount( count + 1)
-        setCurrentPage( currentPage + Math.ceil(state.length / 3.5)) 
+        setCurrentPage( currentPage + 12) 
       }      
     }     
-  }
+  } 
+ 
+  //FUNCION PARA QUE RESTE EN 1 MI PAGINA Y MUTE MI STATE
   const prevPage = () => {     
       if(count > 1) setCount( count -1)
-      if(currentPage > 0) setCurrentPage( currentPage - Math.ceil(state.length / 3.5)) 
+      if(currentPage > 0) setCurrentPage( currentPage - 12) 
     }
 
 
@@ -54,19 +62,25 @@ export default function Home() {
     if(name.length === 0){ 
       return alert('No puedes buscar un pokemon si el input esta vacio')
     } 
-    dispatch(pokemonName(name)) 
+    dispatch(pokemonName(name))  
+    setCurrentPage(0) 
+    setCount(1)
   } 
 
 // HANDLER DEL SELECT DE ORDERS
   function handleOnChange (event) {  
     dispatch(orders(event.target.value))   
-    setAlfa(event.target.value)
+    setAlfa(event.target.value) 
+    setCurrentPage(0) 
+    setCount(1) 
   }
   
 // HANDLER DEL SELECT DE TYPES  
   function handleOnfilter (event) {  
     dispatch(filterType(event.target.value))   
     setAlfa(event.target.value) 
+    setCurrentPage(0) 
+    setCount(1) 
     console.log(alfa)
   } 
 
@@ -89,13 +103,13 @@ export default function Home() {
       </div> 
       <div className='buttons'> 
         <button id='anterior' onClick={prevPage}> 
-          <AiFillCaretLeft/>
+          anterior
         </button> 
 
         <span>{count}/4</span> 
 
         <button id='siguiente' onClick={nextPage}> 
-          <AiFillCaretRight/>
+          siguiente
         </button> 
 
         <select id='order' defaultValue='order' onChange={(e) => handleOnChange(e)}> 
