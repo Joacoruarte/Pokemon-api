@@ -89,8 +89,7 @@ export default function reducer(state = initialState, { type , payload}){
           break;        
         } 
         case FILTER_TYPE:{ 
-            if(payload){  
-                console.log(payload) 
+            if(payload){
                 let arr = []
                 state.auxPokemons.map((e)=> { 
                     if(e.type[0] === payload || e.type[1] === payload){ 
@@ -98,7 +97,6 @@ export default function reducer(state = initialState, { type , payload}){
                     }  
                     return e
                 }) 
-                console.log(arr)
                 return {...state , allPokemons: arr }
             }  
           break;        
@@ -111,11 +109,10 @@ export default function reducer(state = initialState, { type , payload}){
             return { ...state, pokemonDetail: payload }
         } 
         case POKE_NAME: {  
-            console.log(payload[0].name) 
             if(payload[0]){  
                 let arr = []
                 state.auxPokemons.map((e)=> {  
-                    if(e.name.toLowerCase() === payload[0].name || e.name === payload[0].name){ 
+                    if(e.name === payload[0].name){ 
                        return arr.push(e)
                     } 
                     return e
