@@ -12,16 +12,18 @@ export default function Pokemon() {
   const state = useSelector(state => state.pokemonDetail) 
   
   useEffect(() => {    
-      dispatch(pokemonDetail(id)) 
-  }, [id , dispatch]) 
-
-
+      dispatch(pokemonDetail(id))  
+      return function borrarDetalle(){ 
+        dispatch(orders('vaciar'))
+      }
+  }, [id , dispatch])  
+  
   return (  
     <> 
       {Object.keys(state).length === 0 ? <Spin/> : 
       <> 
         <div className='div'> 
-          <button className='button' onClick={() => dispatch(orders('vaciar'))}><Link to={`/home`}>Go to home</Link></button>
+          <button className='button'><Link to={`/home`}>Go to home</Link></button>
         </div> 
         <div className='container' key={id}>  
             <div className='bk'> 

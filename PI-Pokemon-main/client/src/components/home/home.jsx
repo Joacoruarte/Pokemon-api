@@ -1,16 +1,17 @@
 import React ,{ useEffect } from 'react' // useEffect 
 import { useDispatch , useSelector} from 'react-redux';  //useSelector
 import { Link } from 'react-router-dom';
-import { getAllPokemons , orders , pokemonName , refreshPokemons , getTypes , filterType} from '../../actions';    
+import { getAllPokemons , orders , pokemonName , getTypes , filterType} from '../../actions';    
 import Cards from '../cards/Cards';
+import SearchBar from '../SearchBar/SearchBar';
 import Spin from '../spin/spin';  //Spin de carga  
 
 
 export default function Home() { 
 
-  //ESTADOS LOCALES
-  const [alfa , setAlfa] = React.useState('') 
+  //ESTADOS LOCALES 
   const [name , setName] = React.useState('') 
+  const [alfa , setAlfa] = React.useState('') 
   const [count, setCount] = React.useState(1) 
   const [currentPage, setCurrentPage] = React.useState(0)  
   
@@ -24,9 +25,9 @@ export default function Home() {
     dispatch(getTypes())
   }, [dispatch])
   
-  //CUANDO SE MONTA EL COMPONENTE SE TRAE LOS POKEMONS
-  useEffect(() => { 
-      dispatch(getAllPokemons())
+  //CUANDO SE MONTA EL COMPONENTE SE TRAE LOS POKEMONS 
+  useEffect(() => {   
+    state.length === 0 && dispatch(getAllPokemons()) 
   },[dispatch])   
   
   //FILTRADO DE PAGINACION
@@ -50,22 +51,21 @@ export default function Home() {
       if(currentPage > 0) setCurrentPage( currentPage - 12) 
     }
 
-
-// HANDLER INPUT DE BUSQUEDA
-  const handleInputChange = (event) =>{   
-    setName(event.target.value)
-  }
-
-// HANDLER DEL FORM DE TIPO SUBMIT
-  function handleSubmit(event){ 
-    event.preventDefault() 
-    if(name.length === 0){ 
-      return alert('No puedes buscar un pokemon si el input esta vacio')
-    } 
-    dispatch(pokemonName(name))  
-    setCurrentPage(0) 
-    setCount(1)
+// HANDLER DEL FORM DE TIPO SUBMIT  
+function handleSubmit(event){ 
+  event.preventDefault() 
+  if(name.length === 0){ 
+    return alert('No puedes buscar un pokemon si el input esta vacio')
   } 
+  dispatch(pokemonName(name))  
+  setCurrentPage(0) 
+  setCount(1)
+} 
+
+// HANDLER INPUT DE BUSQUEDA  
+const handleInputChange = (event) =>{   
+  setName(event.target.value)
+}
 
 // HANDLER DEL SELECT DE ORDERS
   function handleOnChange (event) {  
@@ -86,21 +86,14 @@ export default function Home() {
 
   return (
     <div> 
-      <div className='logic'> 
-          <div className='titulo'> 
-            <h1>Bienvenido al home!</h1> 
-            <h2>Buscá tu pokemón favorito:</h2>         
-          </div>  
-         <form className='form' onSubmit={(e) => handleSubmit(e)}> 
-            <input 
-            type='text' 
-            autoComplete='off' 
-            value={name} 
-            onChange={(e) => handleInputChange(e)}
-              />   
-            <button type='submit'>BUSCAR</button> 
-          </form>  
+      <div className='pokemon'> 
       </div> 
+      <div> 
+        <SearchBar 
+         search={handleSubmit}  
+         input={handleInputChange}  
+         name={name}/>
+      </div>
       <div className='buttons'> 
         <button id='anterior' onClick={prevPage}> 
           anterior
@@ -132,13 +125,14 @@ export default function Home() {
         </select>   
        
         <select id='types' defaultValue='Tipos' onChange={(e) => handleOnfilter(e)}> 
-          <option disabled value='Tipos'>Types</option>
+          <option disabled value='Tipos'>Types</option> 
+          <option value='all'>All</option>
           {type && type.map(e => ( 
             <option key={e.id} value={e.name}>{e.name}</option>
           ))} 
         </select>   
 
-        <button id='refresh' onClick={() => dispatch(refreshPokemons('reset'))}>Refresh</button> 
+        <button id='refresh' onClick={() => dispatch(getAllPokemons())}>Recargar</button> 
         <button id='crearpk'><Link to={`/create`}>Crea tu propio pokemon</Link></button> 
       </div> 
       <div> 

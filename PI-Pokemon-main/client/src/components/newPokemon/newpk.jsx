@@ -123,7 +123,6 @@ export default function Newpk() {
         if(pokemon.hp !== 0 || pokemon.attack !== 0 || pokemon.defense !== 0 || pokemon.speed !== 0 || pokemon.height !== 0 || pokemon.weight !== 0){ 
           dispatch(postPokemon(pokemon)) 
           dispatch(getAllPokemons()) 
-          dispatch(refreshPokemons())
           alert('Pokemon creado correctamente!') 
           setTimeout(() => {
             history.push('/home')
@@ -133,10 +132,10 @@ export default function Newpk() {
         }        
       }
     }
-  }
+  } 
 
   useEffect(() => { 
-    dispatch(getTypes())
+    dispatch(getTypes()) 
   }, [dispatch])
   // console.log(state)
   return (

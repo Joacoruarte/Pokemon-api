@@ -1,55 +1,59 @@
-#img{ 
-    background-image: url('../tumblr_ndkx9tXfcs1stlfk5o1_1280.gif');
-    background-repeat: repeat-y repeat-x; 
-    background-size: 40%; 
-    height: 720px;
-    .containers{ 
-        display: flex;
-        height: 576px;
-        margin: 0px auto;
-        width: 51%;
-        justify-content: center;
-        flex-direction: column; 
-        
-        .welcome{ 
-            margin: 0px auto;  
-            background-color: #f6e37a;
-            font-family: 'Nunito'; 
-            font-weight: bold;
-            text-align: center;
-        }    
+#fondo{  
+    background-color:  #fcf895;
+    #img{ 
+        background-image: url('https://assets.stickpng.com/images/580b57fcd9996e24bc43c325.png');
+        background-repeat: no-repeat; 
+        background-size: 50% 50%;  
+        height: 720px;
+        .containers{ 
+            display: flex;
+            height: 576px;
+            margin: 0px auto;
+            width: 51%;
+            justify-content: center;
+            flex-direction: column; 
+            
+            .welcome{ 
+                margin: 0px auto;  
+                background-color: #f6e37a;
+                font-family: 'Nunito'; 
+                font-weight: bold;
+                text-align: center;
+            }    
 
-        #link{ 
-            text-decoration: none;  
-        
-            div{ 
-                display: flex; 
-                justify-content: center; 
-                margin: 0px auto;
-            }
-            .home{ 
-                background: #FBCA1F; 
-                cursor: pointer;
-                font-family: inherit;
-                padding: 0.6em 1.3em;
-                font-weight: 900;
-                font-size: 18px;
-                border: 3px solid black;
-                border-radius: 0.4em;
-                box-shadow: 0.1em 0.1em;
-                
-                
-                &:hover {
-                    transform: translate(-0.05em, -0.05em);
-                    box-shadow: 0.15em 0.15em;
+            #link{ 
+                text-decoration: none;  
+            
+                div{ 
+                    display: flex; 
+                    justify-content: center; 
+                    margin: 0px auto;
                 }
-                
-                &:active {
-                    transform: translate(0.05em, 0.05em);
-                    box-shadow: 0.05em 0.05em;
+                .home{ 
+                    background: #FBCA1F; 
+                    cursor: pointer;
+                    font-family: inherit;
+                    padding: 0.6em 1.3em;
+                    font-weight: 900;
+                    font-size: 18px;
+                    border: 3px solid black;
+                    border-radius: 0.4em;
+                    box-shadow: 0.1em 0.1em;
+                    
+                    
+                    &:hover {
+                        transform: translate(-0.05em, -0.05em);
+                        box-shadow: 0.15em 0.15em;
+                    }
+                    
+                    &:active {
+                        transform: translate(0.05em, 0.05em);
+                        box-shadow: 0.05em 0.05em;
+                    }
                 }
-            }
-        } 
-    }
+            } 
+        }
+    }    
 }
+
 

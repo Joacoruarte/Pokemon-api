@@ -62,10 +62,6 @@ export function getTypes(){
     }
 } 
 
-export function refreshPokemons(payload){  
-    return {type: REFRESH_POKEMONS , payload }
-}
-
 export function postPokemon(pokemon){ 
     return async function(dispatch){ 
         await axios.post(`http://localhost:3001/pokemons` , pokemon) 

@@ -1,10 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Nunito:wght@200;300;400&display=swap'); 
 $color-boton: linear-gradient(to bottom, #3eb8e5 0%, #2ca0ca 100%);
+
+.pokemon{ 
+    background-size: 100% 100%;
+    background-image: url('../pokemon.png');
+    position: absolute;
+    height: 100px;
+    background-repeat: no-repeat;
+    width: 270px;
+}
+
 .logic{  
     display: flex;
     width: 70%;
     text-align: center; 
-    margin: 0px auto;
+    margin: 0px 0px 0px auto;
 } 
 
 .pkimgs{ 
