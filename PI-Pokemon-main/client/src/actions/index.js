@@ -6,8 +6,7 @@ import {
     GET_POKEMONS,  
     GET_TYPES, 
     GET_DETAIL, 
-    POST_POKEMON,  
-    REFRESH_POKEMONS} from './types' 
+    POST_POKEMON } from './types' 
 
 
 export function getAllPokemons(){ 

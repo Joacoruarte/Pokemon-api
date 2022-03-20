@@ -61,7 +61,7 @@
   flex-wrap: wrap;
   gap: 1rem;
   margin-left: 3.5rem;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 }
 
 .pokemon {
@@ -438,24 +438,29 @@
 
 #fondo {
   background-color: #fcf895;
+  height: 120.3vh;
 }
 #fondo #img {
-  background-image: url("https://assets.stickpng.com/images/580b57fcd9996e24bc43c325.png");
-  background-repeat: no-repeat;
-  background-size: 50% 50%;
-  height: 720px;
+  height: 100vh;
+}
+#fondo #img img {
+  margin-top: 1rem;
+  height: 37rem;
+  margin-left: 4rem;
 }
 #fondo #img .containers {
   display: flex;
   height: 576px;
   margin: 0px auto;
+  position: absolute;
   width: 51%;
-  justify-content: center;
+  top: 11rem;
+  right: 2rem;
   flex-direction: column;
 }
 #fondo #img .containers .welcome {
   margin: 0px auto;
-  background-color: #f6e37a;
+  background-color: #fcf895;
   font-family: "Nunito";
   font-weight: bold;
   text-align: center;
@@ -478,6 +483,7 @@
   border: 3px solid black;
   border-radius: 0.4em;
   box-shadow: 0.1em 0.1em;
+  margin-top: 1.2rem;
 }
 #fondo #img .containers #link .home:hover {
   transform: translate(-0.05em, -0.05em);
@@ -488,9 +494,13 @@
   box-shadow: 0.05em 0.05em;
 }
 
+html {
+  height: 101%;
+}
+
 body {
   background-color: #fbf8ccec;
-  height: 720px;
+  height: 111%;
   font-family: "Nunito";
 }
 

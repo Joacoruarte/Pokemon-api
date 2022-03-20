@@ -17,7 +17,7 @@ export default function Home() {
   
   //ESTADOS && ACTIONS DE REDUX
   const dispatch = useDispatch() 
-  const state = useSelector(state => state.allPokemons)  
+  let state = useSelector(state => state.allPokemons)  
   const type  = useSelector(state => state.pokemonTypes)      
 
   //CUANDO SE MONTA EL COMPONENTE SE TRAE LOS TIPOS
@@ -28,7 +28,7 @@ export default function Home() {
   //CUANDO SE MONTA EL COMPONENTE SE TRAE LOS POKEMONS 
   useEffect(() => {   
     state.length === 0 && dispatch(getAllPokemons()) 
-  },[dispatch])   
+  },[state.length ,dispatch])   
   
   //FILTRADO DE PAGINACION
   const filterPokemons = () => { 

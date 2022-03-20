@@ -1,4 +1,4 @@
-import { GET_POKEMONS , GET_DETAIL ,GET_TYPES , ORDER_PK , POKE_NAME , FILTER_TYPE , REFRESH_POKEMONS} from "../actions/types"; 
+import { GET_POKEMONS , GET_DETAIL ,GET_TYPES , ORDER_PK , POKE_NAME , FILTER_TYPE } from "../actions/types"; 
 
 const initialState = {  
     allPokemons: [], 

@@ -4,9 +4,13 @@
 @use 'pokemonDetail';
 @use 'formPokemon'; 
 @use 'inicio';
-
+ 
+html{ 
+    height: 101%;
+}
 body{ 
     background-color: #fbf8ccec; 
-    height: 720px; 
+    height: 111%;
     font-family: 'Nunito'; 
-}
+} 
+
