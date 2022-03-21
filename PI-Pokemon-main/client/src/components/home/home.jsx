@@ -12,8 +12,8 @@ export default function Home() {
   //ESTADOS LOCALES 
   const [name , setName] = React.useState('') 
   const [alfa , setAlfa] = React.useState('') 
-  const [count, setCount] = React.useState(1) 
-  const [currentPage, setCurrentPage] = React.useState(0)  
+  const [currentPage, setCurrentPage] = React.useState(1)
+  const [postsPerPage] = React.useState(12)   
   
   //ESTADOS && ACTIONS DE REDUX
   const dispatch = useDispatch() 
@@ -27,29 +27,35 @@ export default function Home() {
   
   //CUANDO SE MONTA EL COMPONENTE SE TRAE LOS POKEMONS 
   useEffect(() => {   
-    state.length === 0 && dispatch(getAllPokemons()) 
-  },[state.length ,dispatch])   
+    dispatch(getAllPokemons()) 
+  },[dispatch])   
   
-  //FILTRADO DE PAGINACION
-  const filterPokemons = () => { 
-    return state.slice(currentPage , currentPage + 12)
-  } 
+  //FILTRADO DE PAGINACION 
+
+  const indexOfLastPage = currentPage * postsPerPage;
+  const indexOfFirstPage = indexOfLastPage - postsPerPage;
+  const filterPokemons = state.slice(indexOfFirstPage , indexOfLastPage)  
+
+  //Indices de pagina automatico
+  const pageNumbers = []; 
+    
+  for(let i = 1; i <= Math.ceil(state.length / postsPerPage); i++) {
+    pageNumbers.push(i)
+  }
 
   //FUNCION PARA QUE AUMENTE EN 1 MI PAGINA Y MUTE MI STATE
   const nextPage = () => { 
-    if(filterPokemons().length === 12){ 
-      if(currentPage < state.length - 12){  
-        if(count < 4) setCount( count + 1)
-        setCurrentPage( currentPage + 12) 
-      }      
-    }     
+    if(currentPage < pageNumbers.length){ 
+      setCurrentPage(currentPage + 1)
+    }
   } 
  
   //FUNCION PARA QUE RESTE EN 1 MI PAGINA Y MUTE MI STATE
   const prevPage = () => {     
-      if(count > 1) setCount( count -1)
-      if(currentPage > 0) setCurrentPage( currentPage - 12) 
+    if(currentPage > 1){ 
+      setCurrentPage(currentPage - 1)
     }
+  }
 
 // HANDLER DEL FORM DE TIPO SUBMIT  
 function handleSubmit(event){ 
@@ -58,8 +64,6 @@ function handleSubmit(event){
     return alert('No puedes buscar un pokemon si el input esta vacio')
   } 
   dispatch(pokemonName(name))  
-  setCurrentPage(0) 
-  setCount(1)
 } 
 
 // HANDLER INPUT DE BUSQUEDA  
@@ -71,16 +75,14 @@ const handleInputChange = (event) =>{
   function handleOnChange (event) {  
     dispatch(orders(event.target.value))   
     setAlfa(event.target.value) 
-    setCurrentPage(0) 
-    setCount(1) 
+    setCurrentPage(1) 
   }
   
 // HANDLER DEL SELECT DE TYPES  
   function handleOnfilter (event) {  
     dispatch(filterType(event.target.value))   
-    setAlfa(event.target.value) 
-    setCurrentPage(0) 
-    setCount(1) 
+    setAlfa(event.target.value)  
+    setCurrentPage(1)
     console.log(alfa)
   } 
 
@@ -96,13 +98,13 @@ const handleInputChange = (event) =>{
       </div>
       <div className='buttons'> 
         <button id='anterior' onClick={prevPage}> 
-          anterior
+          ⬅
         </button> 
 
-        <span>{count}/4</span> 
+        <span>{state.length === 0 ? 0 : currentPage} / {state.length === 0 ? '-' : pageNumbers.length}</span> 
 
         <button id='siguiente' onClick={nextPage}> 
-          siguiente
+          ➡
         </button> 
 
         <select id='order' defaultValue='order' onChange={(e) => handleOnChange(e)}> 
@@ -136,7 +138,7 @@ const handleInputChange = (event) =>{
         <button id='crearpk'><Link to={`/create`}>Crea tu propio pokemon</Link></button> 
       </div> 
       <div> 
-        {state.length === 0 ? <Spin />  :  <Cards pokemon={filterPokemons()}/>}
+        {state.length === 0 ? <Spin />  :  <Cards pokemon={filterPokemons}/>}
       </div>        
 
     </div>

@@ -193,8 +193,9 @@
 #siguiente {
   cursor: pointer;
   padding: 2px;
-  height: 32px;
-  width: 8%;
+  height: 32px; 
+  line-height: 0px;
+  width: 4%;
   border-radius: 5px;
   font-weight: bold;
   color: white;
