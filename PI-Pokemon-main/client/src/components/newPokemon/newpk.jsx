@@ -122,11 +122,10 @@ export default function Newpk() {
         if(select.length > 0) select.map(e => pokemon.type.push(e))  
         if(pokemon.hp !== 0 || pokemon.attack !== 0 || pokemon.defense !== 0 || pokemon.speed !== 0 || pokemon.height !== 0 || pokemon.weight !== 0){ 
           dispatch(postPokemon(pokemon)) 
-          dispatch(getAllPokemons()) 
           alert('Pokemon creado correctamente!') 
           setTimeout(() => {
             history.push('/home')
-          }, 2000);        
+          }, 1000);        
         }else{ 
           alert('Debes rellenar todos los campos antes de enviar')
         }        
