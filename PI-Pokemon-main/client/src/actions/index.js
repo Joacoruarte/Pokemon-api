@@ -6,7 +6,15 @@ import {
     GET_POKEMONS,  
     GET_TYPES, 
     GET_DETAIL, 
-    POST_POKEMON } from './types' 
+    POST_POKEMON, 
+    DELETE_POKEMON } from './types' 
+
+export function deletePokemon(id){  
+    return async function(dispatch){ 
+        const response =  await axios.post(`http://localhost:3001/pokemons/delete`, {id: id}) 
+        dispatch({type: DELETE_POKEMON , payload: id })
+    }
+}
 
 
 export function getAllPokemons(){ 

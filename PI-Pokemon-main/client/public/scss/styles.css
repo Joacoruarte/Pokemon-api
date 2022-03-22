@@ -61,7 +61,7 @@
   flex-wrap: wrap;
   gap: 1rem;
   margin-left: 3.5rem;
-  margin-top: 1.5rem;
+  margin-top: 1.9rem;
 }
 
 .pokemon {
@@ -71,6 +71,10 @@
   height: 100px;
   background-repeat: no-repeat;
   width: 270px;
+}
+
+#nav {
+  background-color: #444;
 }
 
 .logic {
@@ -86,6 +90,8 @@
 
 .titulo {
   display: flex;
+  line-height: 4rem;
+  color: white;
   flex-direction: column;
 }
 .titulo h1 {
@@ -98,8 +104,9 @@
 }
 
 .form {
-  line-height: 170px;
+  line-height: 100px;
   margin-left: 1rem;
+  margin-bottom: 3.5rem;
 }
 .form label {
   font-weight: 600;
@@ -136,19 +143,30 @@
 #order {
   outline: none;
   border-radius: 5px;
-  border: 1px solid #bbbb9c;
-  background-color: #FBF8CF;
+  cursor: pointer;
+  border: 1px solid #fafaf7;
+  color: white;
+  background-color: #444;
+  transition: all 300ms;
+}
+#apidb:focus,
+#types:focus,
+#fuerza:focus,
+#order:focus {
+  background-color: #fff;
+  color: #444;
 }
 
 .buttons {
+  box-shadow: -2px 4px 0px 2px black;
   display: flex;
   width: 96.87%;
-  gap: 1rem;
-  margin: 0px auto;
-  background-color: #242424e6;
+  gap: 0rem;
+  margin-top: -4rem;
+  background-color: transparent;
   height: 2rem;
   padding: 1rem;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 .buttons span {
   line-height: 28px;
@@ -193,7 +211,7 @@
 #siguiente {
   cursor: pointer;
   padding: 2px;
-  height: 32px; 
+  height: 32px;
   line-height: 0px;
   width: 4%;
   border-radius: 5px;
@@ -205,6 +223,27 @@
 }
 #anterior:hover,
 #siguiente:hover {
+  box-shadow: 0px 0px 3px gray;
+}
+
+#delete {
+  padding: 5px;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  width: 5rem;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  border: 1px solid transparent;
+  background: #da2929;
+  transition: all 300ms;
+}
+#delete a {
+  text-decoration: none;
+  color: white;
+}
+#delete:hover {
   box-shadow: 0px 0px 3px gray;
 }
 
@@ -283,9 +322,9 @@
 
 .div {
   text-align: center;
-  width: 57%;
-  margin-top: 16px;
-  margin-bottom: -16px;
+  margin: 2rem 0px -1rem auto;
+  width: 80%;
+  display: flex;
 }
 
 .button {
@@ -438,32 +477,41 @@
 }
 
 #fondo {
-  background-color: #fcf895;
-  height: 120.3vh;
+  background-color: #fbf8ccec;
+  height: 100%;
 }
 #fondo #img {
-  height: 100vh;
+  height: 100%;
+}
+#fondo #img h2 {
+  margin-left: 3.4rem;
 }
 #fondo #img img {
   margin-top: 1rem;
-  height: 37rem;
-  margin-left: 4rem;
+  position: absolute;
+  top: 3rem;
+  left: 1rem;
+  height: 30rem;
+  margin-left: 1rem;
 }
 #fondo #img .containers {
   display: flex;
-  height: 576px;
+  height: 100%;
   margin: 0px auto;
+  background-color: black;
   position: absolute;
   width: 51%;
-  top: 11rem;
-  right: 2rem;
+  top: 0rem;
+  right: 0rem;
   flex-direction: column;
+  justify-content: center;
 }
 #fondo #img .containers .welcome {
   margin: 0px auto;
-  background-color: #fcf895;
   font-family: "Nunito";
   font-weight: bold;
+  color: white;
+  margin-bottom: 11rem;
   text-align: center;
 }
 #fondo #img .containers #link {
@@ -479,12 +527,13 @@
   cursor: pointer;
   font-family: inherit;
   padding: 0.6em 1.3em;
+  position: absolute;
+  top: 18rem;
   font-weight: 900;
   font-size: 18px;
   border: 3px solid black;
   border-radius: 0.4em;
   box-shadow: 0.1em 0.1em;
-  margin-top: 1.2rem;
 }
 #fondo #img .containers #link .home:hover {
   transform: translate(-0.05em, -0.05em);
@@ -496,12 +545,12 @@
 }
 
 html {
-  height: 101%;
+  height: 100%;
 }
 
 body {
   background-color: #fbf8ccec;
-  height: 111%;
+  height: 96%;
   font-family: "Nunito";
 }
 

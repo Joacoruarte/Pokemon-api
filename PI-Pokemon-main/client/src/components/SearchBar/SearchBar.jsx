@@ -2,10 +2,9 @@ import React from 'react'
 
 const SearchBar = ({search , input , name}) => { 
   return (
-        <>
+        <div id='nav'>
             <div className='logic'>
                 <div className='titulo'>
-                    <h1>Bienvenido al home!</h1>
                     <h2>Buscá tu pokemón favorito:</h2>
                 </div>
                 <form className='form' onSubmit={(e) => search(e)}>
@@ -18,7 +17,7 @@ const SearchBar = ({search , input , name}) => {
                     <button type='submit'>BUSCAR</button>
                 </form>
             </div>
-        </>
+        </div>
     )
 }
 

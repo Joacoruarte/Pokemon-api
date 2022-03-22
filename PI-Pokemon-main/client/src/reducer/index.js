@@ -1,4 +1,4 @@
-import { GET_POKEMONS , GET_DETAIL ,GET_TYPES , ORDER_PK , POKE_NAME , FILTER_TYPE } from "../actions/types"; 
+import { GET_POKEMONS , GET_DETAIL ,GET_TYPES , ORDER_PK , POKE_NAME , DELETE_POKEMON , FILTER_TYPE } from "../actions/types"; 
 
 const initialState = {  
     allPokemons: [], 
@@ -126,6 +126,9 @@ export default function reducer(state = initialState, { type , payload}){
                 return  { ...state , allPokemons: state.auxPokemons}
             }
             break;
+        } 
+        case DELETE_POKEMON: {
+            return { ...state ,  allPokemons: state.allPokemons.filter(e=> e.id === payload)}
         } 
         default: return state;
     }

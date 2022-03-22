@@ -91,7 +91,7 @@ const handleInputChange = (event) =>{
       <div className='pokemon'> 
       </div> 
       <div> 
-        <SearchBar 
+        <SearchBar
          search={handleSubmit}  
          input={handleInputChange}  
          name={name}/>
@@ -140,7 +140,6 @@ const handleInputChange = (event) =>{
       <div> 
         {state.length === 0 ? <Spin />  :  <Cards pokemon={filterPokemons}/>}
       </div>        
-
     </div>
   )
 }
