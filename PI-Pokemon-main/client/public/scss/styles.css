@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  background-color: #cf8c8c;
+  background-color: #78C0CF;
   border-radius: 10px;
   padding: 10px;
   width: 7rem;
@@ -15,7 +15,6 @@
 }
 .linkCard .card:hover {
   transform: scale(1.1, 1.1);
-  background-color: #523737;
 }
 .linkCard .card:hover h2 {
   color: #fff;
@@ -74,7 +73,7 @@
 }
 
 #nav {
-  background-color: #444;
+  background-color: #035aad;
 }
 
 .logic {
@@ -145,8 +144,8 @@
   border-radius: 5px;
   cursor: pointer;
   border: 1px solid #fafaf7;
-  color: white;
-  background-color: #444;
+  color: black;
+  background-color: white;
   transition: all 300ms;
 }
 #apidb:focus,
@@ -173,7 +172,8 @@
   color: white;
 }
 
-#crearpk {
+#crearpk,
+#aboutme {
   display: flex;
   flex-wrap: nowrap;
   padding: 9px;
@@ -185,10 +185,12 @@
   background: linear-gradient(to bottom, #3eb8e5 0%, #2ca0ca 100%);
   transition: all 300ms;
 }
-#crearpk:hover {
+#crearpk:hover,
+#aboutme:hover {
   box-shadow: 0px 0px 3px gray;
 }
-#crearpk a {
+#crearpk a,
+#aboutme a {
   text-decoration: none;
   color: white;
 }
@@ -477,7 +479,6 @@
 }
 
 #fondo {
-  background-color: #fbf8ccec;
   height: 100%;
 }
 #fondo #img {
@@ -489,19 +490,18 @@
 #fondo #img img {
   margin-top: 1rem;
   position: absolute;
-  top: 3rem;
-  left: 1rem;
-  height: 30rem;
+  top: 10rem;
+  left: 23rem;
+  height: 16rem;
   margin-left: 1rem;
 }
 #fondo #img .containers {
   display: flex;
   height: 100%;
   margin: 0px auto;
-  background-color: black;
   position: absolute;
-  width: 51%;
-  top: 0rem;
+  width: 100%;
+  top: -3rem;
   right: 0rem;
   flex-direction: column;
   justify-content: center;
@@ -510,7 +510,7 @@
   margin: 0px auto;
   font-family: "Nunito";
   font-weight: bold;
-  color: white;
+  color: black;
   margin-bottom: 11rem;
   text-align: center;
 }
@@ -528,7 +528,7 @@
   font-family: inherit;
   padding: 0.6em 1.3em;
   position: absolute;
-  top: 18rem;
+  top: 29rem;
   font-weight: 900;
   font-size: 18px;
   border: 3px solid black;
@@ -544,12 +544,90 @@
   box-shadow: 0.05em 0.05em;
 }
 
+#about {
+  margin-top: 9rem;
+  box-shadow: 4px 2px 6px 0px #ccc;
+  border-radius: 5px;
+  width: 80%;
+  position: absolute;
+  margin-left: 6rem;
+}
+#about #pokemonImg {
+  display: flex;
+}
+#about #pokemonImg .imgs {
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/barbarian-bg.jpg);
+  height: 13rem;
+  padding: 1rem;
+  border-radius: 5px 0px 0px 5px;
+  display: flex;
+  justify-content: center;
+}
+#about #pokemonImg .imgs img {
+  height: 10rem;
+}
+#about #pokemonImg .content {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 0px;
+  margin-top: -3rem;
+}
+#about #pokemonImg .content h1 {
+  font-family: "Nunito";
+  text-align: center;
+}
+#about #pokemonImg .content div {
+  display: flex;
+  margin-top: 1rem;
+  gap: 3rem;
+  justify-content: center;
+}
+#about #pokemonImg .content div a {
+  color: black;
+  text-decoration: none;
+  font-size: 30px;
+  list-style: none;
+}
+
+#navbar {
+  position: absolute;
+  top: 3rem;
+  left: 28rem;
+  font-family: "Nunito";
+  text-decoration: underline;
+}
+
+.btn {
+  padding: 5px;
+  margin-bottom: 2rem;
+  position: absolute;
+  top: 5rem;
+  left: 6rem;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  border: 1px solid transparent;
+  background: linear-gradient(to bottom, #3eb8e5 0%, #2ca0ca 100%);
+  transition: all 300ms;
+}
+.btn a {
+  text-decoration: none;
+  color: white;
+}
+.btn:hover {
+  box-shadow: 0px 0px 3px gray;
+}
+
 html {
   height: 100%;
 }
 
 body {
-  background-color: #fbf8ccec;
+  background-color: #ffff;
   height: 96%;
   font-family: "Nunito";
 }

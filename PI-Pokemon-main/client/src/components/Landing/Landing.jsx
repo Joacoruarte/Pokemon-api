@@ -6,10 +6,9 @@ export default function Landing() {
   return (  
     <div id='fondo'> 
       <div id='img'> 
-      <h2>Hi, Welcome to my Poke Api!</h2>  
-      <img src='https://assets.stickpng.com/images/580b57fcd9996e24bc43c325.png' alt='pikachu img'/>
+      <img src='https://i.etsystatic.com/27100843/r/il/b29bdb/3155470590/il_300x300.3155470590_91vy.jpg' alt='pikachu img'/>
         <div className='containers'> 
-          <h1 className='welcome'>Find your favorite pokemon!</h1>  
+          <h1 className='welcome'>Find your favourite pokemon!</h1>  
           <Link id='link' to={'/home'}> 
             <div> 
               <button className='home'>Ingresar</button>

@@ -135,6 +135,7 @@ const handleInputChange = (event) =>{
         </select>   
 
         <button id='refresh' onClick={() => dispatch(getAllPokemons())}>Recargar</button> 
+        <button id='aboutme'><Link to={`/about`}>About</Link></button>
         <button id='crearpk'><Link to={`/create`}>Crea tu propio pokemon</Link></button> 
       </div> 
       <div> 

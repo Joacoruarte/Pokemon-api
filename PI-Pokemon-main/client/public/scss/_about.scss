@@ -1,0 +1,80 @@
+#about{   
+    margin-top: 9rem;
+    box-shadow: 4px 2px 6px 0px #ccc;
+    border-radius: 5px;
+    width: 80%;
+    position: absolute;
+    margin-left: 6rem;
+    #pokemonImg{   
+        display: flex;
+        .imgs{ 
+            background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/barbarian-bg.jpg);
+            height: 13rem;
+            padding: 1rem; 
+            border-radius: 5px 0px 0px 5px;
+            display: flex;
+            justify-content: center;
+            img{ 
+               height: 10rem;
+            }   
+        } 
+        
+        .content{ 
+            text-align: center;
+            width: 100%; 
+            display: flex; 
+            flex-direction: column;  
+            justify-content: center;  
+            line-height: 0px; 
+            margin-top: -3rem; 
+
+            h1{ 
+                font-family: 'Nunito'; 
+                text-align: center;
+            } 
+            div{ 
+                display: flex;  
+                margin-top: 1rem;
+                gap: 3rem;  
+                justify-content: center;
+                 
+                a{ 
+                    color: black;
+                    text-decoration: none;
+                    font-size: 30px;
+                    list-style: none;
+                } 
+            }
+        }
+    } 
+} 
+
+#navbar{ 
+    position: absolute;
+    top: 3rem;
+    left: 28rem; 
+    font-family: 'Nunito'; 
+    text-decoration: underline;
+} 
+.btn{ 
+    padding: 5px;
+    margin-bottom: 2rem;
+    position: absolute;
+    top: 5rem;
+    left: 6rem;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    border: 1px solid transparent;
+    background: linear-gradient(to bottom, #3eb8e5 0%, #2ca0ca 100%);
+    transition: all 300ms;
+    
+        a{ 
+            text-decoration: none;
+            color: white;
+        }
+        &:hover{ 
+            box-shadow: 0px 0px 3px gray;
+        }
+}

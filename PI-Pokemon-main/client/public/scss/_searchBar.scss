@@ -11,7 +11,7 @@ $color-boton: linear-gradient(to bottom, #3eb8e5 0%, #2ca0ca 100%);
 }
 
 #nav{ 
-    background-color: #444;
+    background-color: #035aad;
 }
 
 .logic{  
@@ -85,8 +85,8 @@ $color-boton: linear-gradient(to bottom, #3eb8e5 0%, #2ca0ca 100%);
     border-radius: 5px;  
     cursor: pointer; 
     border: 1px solid rgb(250, 250, 247); 
-    color: white;
-    background-color: #444;  
+    color: black;
+    background-color: rgb(255, 255, 255);  
     transition: all 300ms;
 
     &:focus{ 
@@ -112,7 +112,8 @@ $color-boton: linear-gradient(to bottom, #3eb8e5 0%, #2ca0ca 100%);
     }
 } 
 
-#crearpk{  
+#crearpk, 
+#aboutme{  
     display: flex; 
     flex-wrap: nowrap;
     padding: 9px;

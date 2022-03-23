@@ -1,6 +1,6 @@
 import React ,{ useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllPokemons, getTypes , postPokemon } from '../../actions' 
+import { getTypes , postPokemon } from '../../actions' 
 import {Link, useHistory} from 'react-router-dom' 
 
 

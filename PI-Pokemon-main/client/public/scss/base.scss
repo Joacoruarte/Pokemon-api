@@ -3,13 +3,14 @@
 @use 'spin'; 
 @use 'pokemonDetail';
 @use 'formPokemon'; 
-@use 'inicio';
+@use 'inicio'; 
+@use 'about';
  
 html{ 
     height: 100%;
 }
 body{ 
-    background-color: #fbf8ccec; 
+    background-color: #ffff; 
     height: 96%;
     font-family: 'Nunito'; 
 } 
