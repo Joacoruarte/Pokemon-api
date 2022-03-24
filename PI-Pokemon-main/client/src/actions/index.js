@@ -11,7 +11,7 @@ import {
 
 export function deletePokemon(id){  
     return async function(dispatch){ 
-        const response =  await axios.post(`/pokemons/delete`, {id: id}) 
+        await axios.post(`/pokemons/delete`, {id: id}) 
         dispatch({type: DELETE_POKEMON , payload: id })
     }
 }
