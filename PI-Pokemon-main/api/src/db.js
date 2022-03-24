@@ -25,7 +25,7 @@ let sequelize =
           },
           keepAlive: true,
         },
-        ssl: true,
+        ssl: { "rejectUnauthorized": false },
       })
     : new Sequelize(
         `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
