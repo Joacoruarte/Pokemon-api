@@ -7,7 +7,8 @@ import {
     GET_TYPES, 
     GET_DETAIL, 
     POST_POKEMON, 
-    DELETE_POKEMON } from './types' 
+    DELETE_POKEMON, 
+    LOADING } from './types' 
 
 export function deletePokemon(id){  
     return async function(dispatch){ 
@@ -45,8 +46,9 @@ export function pokemonDetail(id){
 
 export function pokemonName(name){ 
     name = name[0].toUpperCase() + name.slice(1) 
-    return async function(dispatch){ 
+    return async function(dispatch) { 
         try{ 
+            dispatch({type: LOADING}) 
             let arr = [] 
             const response = await axios.get(`/pokemons?name=${name}`) 
             const payload = await response.data  

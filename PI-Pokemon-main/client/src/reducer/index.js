@@ -1,9 +1,10 @@
-import { GET_POKEMONS , GET_DETAIL ,GET_TYPES , ORDER_PK , POKE_NAME , DELETE_POKEMON , FILTER_TYPE } from "../actions/types"; 
+import { GET_POKEMONS , GET_DETAIL ,GET_TYPES , ORDER_PK , POKE_NAME , DELETE_POKEMON , FILTER_TYPE , LOADING} from "../actions/types"; 
 
 const initialState = {  
     allPokemons: [], 
     auxPokemons: [],
-    pokemonTypes: [],
+    pokemonTypes: [], 
+    loading: false,
     pokemonDetail: {}
 } 
 
@@ -121,15 +122,18 @@ export default function reducer(state = initialState, { type , payload}){
                     } 
                     return e
                 }) 
-                return { ...state , allPokemons: arr}
+                return { ...state , allPokemons: arr , loading: false}
             }else if(payload[0] === null){ 
-                return  { ...state , allPokemons: state.auxPokemons}
+                return  { ...state , allPokemons: state.auxPokemons , loading: false}
             }
             break;
         } 
         case DELETE_POKEMON: {
             return { ...state ,  allPokemons: state.allPokemons.filter(e=> e.id === payload)}
-        } 
+        }  
+        case LOADING: { 
+            return { ...state , loading: true}
+        }
         default: return state;
     }
 }

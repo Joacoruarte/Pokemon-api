@@ -18,7 +18,7 @@ function About() {
                 <div className='content'> 
                     <h1>-SPA Created by Joaquin ruarte-</h1> 
                     <div> 
-                        <a href='https://www.linkedin.com/in/joaquin-ruarte-67577b210/'><SiLinkedin /></a>
+                        <a href='https://www.linkedin.com/in/joaquin-ruarte'><SiLinkedin /></a>
                         <a href='https://github.com/Joacoruarte'><GoMarkGithub /></a>
                     </div>            
                 </div> 

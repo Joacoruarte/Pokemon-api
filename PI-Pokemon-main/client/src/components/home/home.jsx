@@ -18,7 +18,8 @@ export default function Home() {
   //ESTADOS && ACTIONS DE REDUX
   const dispatch = useDispatch() 
   let state = useSelector(state => state.allPokemons)  
-  const type  = useSelector(state => state.pokemonTypes)      
+  const type  = useSelector(state => state.pokemonTypes)    
+  const loading = useSelector(state => state.loading)   
 
   //CUANDO SE MONTA EL COMPONENTE SE TRAE LOS TIPOS
   useEffect(() => { 
@@ -85,62 +86,122 @@ const handleInputChange = (event) =>{
     setCurrentPage(1)
     console.log(alfa)
   } 
-
-  return (
-    <div> 
-      <div className='pokemon'> 
-      </div> 
+  if(loading){  
+    return ( 
       <div> 
-        <SearchBar
-         search={handleSubmit}  
-         input={handleInputChange}  
-         name={name}/>
+        <div className='pokemon'> 
+        </div> 
+        <div> 
+          <SearchBar
+           search={handleSubmit}  
+           input={handleInputChange}  
+           name={name}/>
+        </div>
+        <div className='buttons'> 
+          <button id='anterior' onClick={prevPage}> 
+            ⬅
+          </button> 
+  
+          <span>{state.length === 0 ? 0 : currentPage} / {state.length === 0 ? '-' : pageNumbers.length}</span> 
+  
+          <button id='siguiente' onClick={nextPage}> 
+            ➡
+          </button> 
+  
+          <select id='order' defaultValue='order' onChange={(e) => handleOnChange(e)}> 
+            <option disabled value='order'>Order</option>
+            <option value='az'>A-Z</option> 
+            <option value='za'>Z-A</option>  
+          </select> 
+         
+          <select id='apidb' defaultValue='order' onChange={(e) => handleOnChange(e)}> 
+            <option disabled value='order'>API / DB</option>
+            <option value='api'>Api</option> 
+            <option value='db'>DB</option>  
+          </select> 
+  
+  
+          <select id='fuerza' defaultValue='Strong' onChange={(e) => handleOnChange(e)}> 
+            <option disabled value='Strong'>Strong</option>
+            <option value='low'>Low-attack</option> 
+            <option value='hight'>Hight-attact</option>  
+          </select>   
+         
+          <select id='types' defaultValue='Tipos' onChange={(e) => handleOnfilter(e)}> 
+            <option disabled value='Tipos'>Types</option> 
+            <option value='all'>All</option>
+            {type && type.map(e => ( 
+              <option key={e.id} value={e.name}>{e.name}</option>
+            ))} 
+          </select>   
+  
+          <button id='refresh' onClick={() => dispatch(getAllPokemons())}>Recargar</button> 
+          <button id='aboutme'><Link to={`/about`}>About</Link></button>
+          <button id='crearpk'><Link to={`/create`}>Crea tu propio pokemon</Link></button> 
+        </div>  
+            <div> 
+              <Spin/>
+            </div>
+       </div> 
+    )
+  }else{ 
+    return ( 
+      <div> 
+        <div className='pokemon'> 
+        </div> 
+        <div> 
+          <SearchBar
+           search={handleSubmit}  
+           input={handleInputChange}  
+           name={name}/>
+        </div>
+        <div className='buttons'> 
+          <button id='anterior' onClick={prevPage}> 
+            ⬅
+          </button> 
+  
+          <span>{state.length === 0 ? 0 : currentPage} / {state.length === 0 ? '-' : pageNumbers.length}</span> 
+  
+          <button id='siguiente' onClick={nextPage}> 
+            ➡
+          </button> 
+  
+          <select id='order' defaultValue='order' onChange={(e) => handleOnChange(e)}> 
+            <option disabled value='order'>Order</option>
+            <option value='az'>A-Z</option> 
+            <option value='za'>Z-A</option>  
+          </select> 
+         
+          <select id='apidb' defaultValue='order' onChange={(e) => handleOnChange(e)}> 
+            <option disabled value='order'>API / DB</option>
+            <option value='api'>Api</option> 
+            <option value='db'>DB</option>  
+          </select> 
+  
+  
+          <select id='fuerza' defaultValue='Strong' onChange={(e) => handleOnChange(e)}> 
+            <option disabled value='Strong'>Strong</option>
+            <option value='low'>Low-attack</option> 
+            <option value='hight'>Hight-attact</option>  
+          </select>   
+         
+          <select id='types' defaultValue='Tipos' onChange={(e) => handleOnfilter(e)}> 
+            <option disabled value='Tipos'>Types</option> 
+            <option value='all'>All</option>
+            {type && type.map(e => ( 
+              <option key={e.id} value={e.name}>{e.name}</option>
+            ))} 
+          </select>   
+  
+          <button id='refresh' onClick={() => dispatch(getAllPokemons())}>Recargar</button> 
+          <button id='aboutme'><Link to={`/about`}>About</Link></button>
+          <button id='crearpk'><Link to={`/create`}>Crea tu propio pokemon</Link></button> 
+        </div> 
+        <div> 
+          {state.length === 0 ? <Spin />  :  <Cards pokemon={filterPokemons}/>}
+        </div>        
       </div>
-      <div className='buttons'> 
-        <button id='anterior' onClick={prevPage}> 
-          ⬅
-        </button> 
+    )
 
-        <span>{state.length === 0 ? 0 : currentPage} / {state.length === 0 ? '-' : pageNumbers.length}</span> 
-
-        <button id='siguiente' onClick={nextPage}> 
-          ➡
-        </button> 
-
-        <select id='order' defaultValue='order' onChange={(e) => handleOnChange(e)}> 
-          <option disabled value='order'>Order</option>
-          <option value='az'>A-Z</option> 
-          <option value='za'>Z-A</option>  
-        </select> 
-       
-        <select id='apidb' defaultValue='order' onChange={(e) => handleOnChange(e)}> 
-          <option disabled value='order'>API / DB</option>
-          <option value='api'>Api</option> 
-          <option value='db'>DB</option>  
-        </select> 
-
-
-        <select id='fuerza' defaultValue='Strong' onChange={(e) => handleOnChange(e)}> 
-          <option disabled value='Strong'>Strong</option>
-          <option value='low'>Low-attack</option> 
-          <option value='hight'>Hight-attact</option>  
-        </select>   
-       
-        <select id='types' defaultValue='Tipos' onChange={(e) => handleOnfilter(e)}> 
-          <option disabled value='Tipos'>Types</option> 
-          <option value='all'>All</option>
-          {type && type.map(e => ( 
-            <option key={e.id} value={e.name}>{e.name}</option>
-          ))} 
-        </select>   
-
-        <button id='refresh' onClick={() => dispatch(getAllPokemons())}>Recargar</button> 
-        <button id='aboutme'><Link to={`/about`}>About</Link></button>
-        <button id='crearpk'><Link to={`/create`}>Crea tu propio pokemon</Link></button> 
-      </div> 
-      <div> 
-        {state.length === 0 ? <Spin />  :  <Cards pokemon={filterPokemons}/>}
-      </div>        
-    </div>
-  )
+  }
 }
