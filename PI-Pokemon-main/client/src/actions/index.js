@@ -11,7 +11,7 @@ import {
 
 export function deletePokemon(id){  
     return async function(dispatch){ 
-        const response =  await axios.post(`http://localhost:3001/pokemons/delete`, {id: id}) 
+        const response =  await axios.post(`/pokemons/delete`, {id: id}) 
         dispatch({type: DELETE_POKEMON , payload: id })
     }
 }
@@ -19,7 +19,7 @@ export function deletePokemon(id){
 
 export function getAllPokemons(){ 
     return async function(dispatch){ 
-        const response =  await axios.get(`http://localhost:3001/pokemons`) 
+        const response =  await axios.get(`/pokemons`) 
         const payload = await response.data
         dispatch({type: GET_POKEMONS , payload })
     }
@@ -36,7 +36,7 @@ export function filterType(payload){
 
 export function pokemonDetail(id){ 
     return async function(dispatch){ 
-        const response = await axios.get(`http://localhost:3001/pokemons/${id}`) 
+        const response = await axios.get(`/pokemons/${id}`) 
         const payload = await response.data
         dispatch({type: GET_DETAIL , payload})
     }
@@ -48,7 +48,7 @@ export function pokemonName(name){
     return async function(dispatch){ 
         try{ 
             let arr = [] 
-            const response = await axios.get(`http://localhost:3001/pokemons?name=${name}`) 
+            const response = await axios.get(`/pokemons?name=${name}`) 
             const payload = await response.data  
             arr.push(payload)
             console.log(arr)
@@ -63,7 +63,7 @@ export function pokemonName(name){
 
 export function getTypes(){ 
     return async function(dispatch){ 
-        const response = await axios.get(`http://localhost:3001/types`) 
+        const response = await axios.get(`/types`) 
         const payload = await response.data
         dispatch({type: GET_TYPES , payload})
     }
@@ -71,7 +71,7 @@ export function getTypes(){
 
 export function postPokemon(pokemon){ 
     return async function(dispatch){ 
-        await axios.post(`http://localhost:3001/pokemons` , pokemon) 
+        await axios.post(`/pokemons` , pokemon) 
         dispatch({type: POST_POKEMON })
     }
 } 

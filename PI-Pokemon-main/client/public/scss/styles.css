@@ -627,7 +627,7 @@ html {
 }
 
 body {
-  background-color: #ffff;
+  background-color: rgb(255, 255, 233);
   height: 96%;
   font-family: "Nunito";
 }
