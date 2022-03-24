@@ -1,4 +1,4 @@
-import { GET_POKEMONS , GET_DETAIL ,GET_TYPES , ORDER_PK , POKE_NAME , DELETE_POKEMON , FILTER_TYPE , LOADING} from "../actions/types"; 
+import { GET_POKEMONS , GET_DETAIL ,GET_TYPES , ORDER_PK , POKE_NAME , DELETE_POKEMON , FILTER_TYPE , LOADING , LOADING_FALSE} from "../actions/types"; 
 
 const initialState = {  
     allPokemons: [], 
@@ -133,6 +133,12 @@ export default function reducer(state = initialState, { type , payload}){
         }  
         case LOADING: { 
             return { ...state , loading: true}
+        } 
+        case LOADING_FALSE :{  
+            if(payload === 'loading'){ 
+                return { ...state , loading:false}
+            } 
+            break
         }
         default: return state;
     }

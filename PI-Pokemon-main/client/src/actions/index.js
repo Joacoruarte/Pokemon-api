@@ -8,13 +8,18 @@ import {
     GET_DETAIL, 
     POST_POKEMON, 
     DELETE_POKEMON, 
-    LOADING } from './types' 
+    LOADING , 
+    LOADING_FALSE} from './types' 
 
 export function deletePokemon(id){  
     return async function(dispatch){ 
         await axios.post(`/pokemons/delete`, {id: id}) 
         dispatch({type: DELETE_POKEMON , payload: id })
     }
+} 
+
+export function setLoading(payload){ 
+    return { type: LOADING_FALSE , payload}
 }
 
 

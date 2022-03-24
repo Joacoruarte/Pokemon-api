@@ -1,7 +1,7 @@
 import React ,{ useEffect } from 'react' // useEffect 
 import { useDispatch , useSelector} from 'react-redux';  //useSelector
 import { Link } from 'react-router-dom';
-import { getAllPokemons , orders , pokemonName , getTypes , filterType} from '../../actions';    
+import { getAllPokemons , orders , setLoading , pokemonName , getTypes , filterType} from '../../actions';    
 import Cards from '../cards/Cards';
 import SearchBar from '../SearchBar/SearchBar';
 import Spin from '../spin/spin';  //Spin de carga  
@@ -19,7 +19,7 @@ export default function Home() {
   const dispatch = useDispatch() 
   let state = useSelector(state => state.allPokemons)  
   const type  = useSelector(state => state.pokemonTypes)    
-  const loading = useSelector(state => state.loading)   
+  let loading = useSelector(state => state.loading)   
 
   //CUANDO SE MONTA EL COMPONENTE SE TRAE LOS TIPOS
   useEffect(() => { 
@@ -86,6 +86,11 @@ const handleInputChange = (event) =>{
     setCurrentPage(1)
     console.log(alfa)
   } 
+
+  function handlerLoading(){   
+    dispatch(setLoading('loading'))
+    dispatch(getAllPokemons()) 
+    }
   if(loading){  
     return ( 
       <div> 
@@ -135,10 +140,7 @@ const handleInputChange = (event) =>{
             ))} 
           </select>   
   
-          <button id='refresh' onClick={() =>{   
-            loading = false
-            dispatch(getAllPokemons()) 
-            }}>Recargar</button> 
+          <button id='refresh' onClick={handlerLoading}>Recargar</button> 
           <button id='aboutme'><Link to={`/about`}>About</Link></button>
           <button id='crearpk'><Link to={`/create`}>Crea tu propio pokemon</Link></button> 
         </div>  
