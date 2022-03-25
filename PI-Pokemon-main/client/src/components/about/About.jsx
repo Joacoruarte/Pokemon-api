@@ -18,11 +18,11 @@ function About() {
                 <div className='content'> 
                     <h1>-SPA Created by Joaquin ruarte-</h1> 
                     <div> 
-                        <a href='https://www.linkedin.com/in/joaquin-ruarte'><SiLinkedin /></a> 
+                        <a href='https://www.linkedin.com/in/joaquinruartejs/'><SiLinkedin /></a> 
                         <a href='https://github.com/Joacoruarte'><GoMarkGithub /></a>
                     </div>            
                 </div> 
-            </div>        
+            </div>         
         </div>     
      </> 
 
