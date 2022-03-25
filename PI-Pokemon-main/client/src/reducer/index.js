@@ -24,7 +24,7 @@ export default function reducer(state = initialState, { type , payload}){
                             } 
                             return 0                     
                     })             
-                    return {...state ,  allPokemons: az}  
+                    return {...state ,  allPokemons: az , loading:false}  
                 }  
             if(payload === 'za'){ 
                 const za = state.auxPokemons.sort((a,b) => {  
@@ -36,7 +36,7 @@ export default function reducer(state = initialState, { type , payload}){
                         } 
                         return 0                     
                 })                  
-                return {...state ,  allPokemons: za} 
+                return {...state ,  allPokemons: za , loading:false} 
           }        
             if(payload === 'low'){ 
                 const low = state.auxPokemons.sort((a,b) => {  
@@ -48,7 +48,7 @@ export default function reducer(state = initialState, { type , payload}){
                     } 
                     return 0  
                 })          
-                return {...state ,  allPokemons: low} 
+                return {...state ,  allPokemons: low , loading:false} 
           }        
             if(payload === 'hight'){ 
                 const hight = state.auxPokemons.sort((a,b) => {  
@@ -60,7 +60,7 @@ export default function reducer(state = initialState, { type , payload}){
                     } 
                     return 0  
                 })             
-                return {...state ,  allPokemons: hight}  
+                return {...state ,  allPokemons: hight , loading:false}  
           } 
           if(payload === 'api'){ 
             let arr = [] 
@@ -70,7 +70,7 @@ export default function reducer(state = initialState, { type , payload}){
                 } 
                 return e 
             }) 
-            return {...state , allPokemons: arr}
+            return {...state , allPokemons: arr , loading:false}
           }
           if(payload === 'db'){ 
             let arr2 = [] 
@@ -92,7 +92,7 @@ export default function reducer(state = initialState, { type , payload}){
         case FILTER_TYPE:{ 
             if(payload){ 
                 if(payload === 'all'){ 
-                    return {...state , allPokemons: state.auxPokemons }
+                    return {...state , allPokemons: state.auxPokemons , loading:false}
                 }
                 let arr = []
                 state.auxPokemons.map((e)=> { 
@@ -101,7 +101,7 @@ export default function reducer(state = initialState, { type , payload}){
                     }  
                     return e
                 }) 
-                return {...state , allPokemons: arr }
+                return {...state , allPokemons: arr , loading:false }
             }  
           break;        
         }
