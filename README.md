@@ -31,7 +31,7 @@ apartir de ella poder, entre otras cosas:
   - Agregar nuevos pokemons propios por medio de un formulario
   - Ver el detalle individual de cada uno
 
-#### Frontend
+## Frontend
 
 __Pagina inicial__: deben armar una landing page con
 - [ ] Alguna imagen de fondo representativa al proyecto
@@ -60,7 +60,7 @@ __Ruta de creación__: debe contener
 
 - Formulario de HTML validado con JavaScript.
 
-#### Base de datos
+## Base de datos
 
 El modelo de la base de datos deberá tener las siguientes entidades (Aquellas propiedades marcadas con asterísco deben ser obligatorias):
 
@@ -79,7 +79,7 @@ El modelo de la base de datos deberá tener las siguientes entidades (Aquellas p
 
 La relación entre ambas entidades debe ser de muchos a muchos ya que un pokemon puede pertenecer a más de un tipo y, a su vez, un tipo puede incluir a muchos pokemons.
 
-#### Backend
+## Backend
 
 - [ ] __GET /pokemons__:
   - Devuelve un listado de los pokemons desde pokeapi.
