@@ -32,7 +32,6 @@ export function getAllPokemons(){
 }
 
 export function orders(payload){  
-    console.log(payload)
     return { type: ORDER_PK , payload }
 }
 
@@ -50,16 +49,12 @@ export function pokemonDetail(id){
 
 
 export function pokemonName(name){ 
-    name = name[0].toUpperCase() + name.slice(1) 
     return async function(dispatch) { 
         try{ 
             dispatch({type: LOADING}) 
-            let arr = [] 
             const response = await axios.get(`/pokemons?name=${name}`) 
             const payload = await response.data  
-            arr.push(payload)
-            console.log(arr)
-            dispatch({type: POKE_NAME , payload: arr})            
+            dispatch({type: POKE_NAME , payload})            
         }catch{  
            alert('Tienes que ingresar un nombre y que sea valido')
         }  

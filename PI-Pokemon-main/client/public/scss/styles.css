@@ -42,7 +42,7 @@
 }
 .linkCard .card .type {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin: -10px auto;
   text-align: center;
 }
@@ -56,14 +56,37 @@
 }
 
 #container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 150px 150px 150px 150px 150px 150px;
+  grid-gap: 1rem;
   margin-top: 1.9rem;
   padding: 1rem;
+  justify-items: center;
+  align-content: space-between;
+  justify-content: center;
 }
 
+@media (max-width: 972px) {
+  #container {
+    grid-template-columns: 150px 150px 150px 150px;
+  }
+}
+@media (max-width: 674px) {
+  #container {
+    margin-left: 2rem;
+  }
+}
+@media (max-width: 631px) {
+  #container {
+    grid-template-columns: 150px 150px 150px;
+  }
+}
+@media (max-width: 470px) {
+  #container {
+    grid-template-columns: 150px 150px;
+    margin-left: 0rem;
+  }
+}
 #nav {
   display: flex;
   flex-direction: column;

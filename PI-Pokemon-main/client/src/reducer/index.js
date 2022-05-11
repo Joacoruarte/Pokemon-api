@@ -113,16 +113,8 @@ export default function reducer(state = initialState, { type , payload}){
             return { ...state, pokemonDetail: payload }
         } 
         case POKE_NAME: {  
-            console.log(payload[0].name) 
-            if(payload[0]){  
-                let arr = []
-                state.auxPokemons.map((e)=> {  
-                    if(e.name.toLowerCase() === payload[0].name || e.name === payload[0].name){ 
-                       return arr.push(e)
-                    } 
-                    return e
-                }) 
-                return { ...state , allPokemons: arr , loading: false}
+            if(payload){  
+                return { ...state , allPokemons: payload , loading: false}
             }else if(payload[0] === null){ 
                 return  { ...state , allPokemons: state.auxPokemons , loading: false}
             }
