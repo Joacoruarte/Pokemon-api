@@ -42,11 +42,11 @@ async function dbPokemon(){
 async function pokemonsData(){  
         const pk20 = await axios.get('https://pokeapi.co/api/v2/pokemon') 
         const pk40 = await axios.get(pk20.data.next) 
-        const pk60 = await axios.get(pk40.data.next) 
-        const pk80 = await axios.get(pk60.data.next) 
-        const pk100 = await axios.get(pk80.data.next) 
-        const pk120 = await axios.get(pk100.data.next) 
-        const pkTotal = pk20.data.results.concat(pk40.data.results , pk60.data.results , pk80.data.results , pk100.data.results, pk120.data.results)
+        // const pk60 = await axios.get(pk40.data.next) 
+        // const pk80 = await axios.get(pk60.data.next) 
+        // const pk100 = await axios.get(pk80.data.next) 
+        // const pk120 = await axios.get(pk100.data.next) 
+        const pkTotal = pk20.data.results.concat(pk40.data.results /*, pk60.data.results , pk80.data.results , pk100.data.results, pk120.data.results */)
 
         let result = pkTotal.map(async(e) => { 
             return await axios.get(e.url) 

@@ -662,11 +662,10 @@
   }
 }
 #about {
-  margin-top: 9rem;
+  margin-top: 3rem;
   box-shadow: 4px 2px 6px 0px #ccc;
   border-radius: 5px;
   width: 80%;
-  position: absolute;
   margin-left: 6rem;
 }
 #about #pokemonImg {
@@ -710,11 +709,10 @@
 }
 
 #navbar {
-  position: absolute;
-  top: 3rem;
-  left: 28rem;
+  margin-top: 3rem;
   font-family: "Nunito";
   text-decoration: underline;
+  text-align: center;
 }
 
 .btn {
@@ -739,6 +737,89 @@
   box-shadow: 0px 0px 3px gray;
 }
 
+@media (max-width: 810px) {
+  .content h1 {
+    font-size: 26px;
+  }
+}
+@media (max-width: 770px) {
+  .content h1 {
+    font-size: 20px;
+  }
+}
+@media (max-width: 591px) {
+  #about {
+    margin-left: 5rem;
+  }
+
+  .content h1 {
+    font-size: 15px;
+  }
+
+  #about #pokemonImg .imgs img {
+    height: 9rem;
+    width: 10rem;
+  }
+
+  #about #pokemonImg .imgs {
+    height: 10rem;
+  }
+
+  #about #pokemonImg .content div a {
+    font-size: 20px;
+  }
+}
+@media (max-width: 522px) {
+  .btn {
+    left: 5rem;
+  }
+
+  .content h1 {
+    font-size: 13px;
+  }
+}
+@media (max-width: 490px) {
+  .btn {
+    top: 3.5rem;
+    margin-left: 15rem;
+  }
+
+  .content h1 {
+    font-size: 13px;
+  }
+}
+@media (max-width: 475px) {
+  .content h1 {
+    font-size: 10px;
+  }
+}
+@media (max-width: 420px) {
+  #about {
+    margin-left: 3rem;
+  }
+
+  .content h1 {
+    font-size: 9px;
+  }
+
+  #about #pokemonImg .imgs img {
+    height: 7rem;
+    width: 7rem;
+  }
+
+  #about #pokemonImg .imgs {
+    height: 7rem;
+  }
+}
+@media (max-width: 375px) {
+  #about {
+    margin-left: 3rem;
+  }
+
+  .btn {
+    margin-left: 12rem;
+  }
+}
 html {
   height: 100%;
 }
