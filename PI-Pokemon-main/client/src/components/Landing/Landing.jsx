@@ -13,7 +13,7 @@ export default function Landing() {
           />
         </div>
         <Link id="link" to={"/home"}>
-          <div>
+          <div className="homeDiv">
             <button className="home">Ingresar</button>
           </div>
         </Link>
