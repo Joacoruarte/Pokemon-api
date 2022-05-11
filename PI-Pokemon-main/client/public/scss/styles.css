@@ -59,28 +59,30 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-left: 3.5rem;
+  justify-content: center;
   margin-top: 1.9rem;
 }
 
-.pokemon {
+#nav {
+  display: flex;
+  flex-direction: column;
+  width: 101%;
+  background-color: #035aad;
+}
+#nav .logic {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  margin: 0px 0px 0px auto;
+}
+#nav .logic .pokemon {
   background-size: 100% 100%;
   background-image: url("../pokemon.png");
-  position: absolute;
   height: 100px;
   background-repeat: no-repeat;
   width: 270px;
-}
-
-#nav {
-  background-color: #035aad;
-}
-
-.logic {
-  display: flex;
-  width: 70%;
-  text-align: center;
-  margin: 0px 0px 0px auto;
 }
 
 .pkimgs {
@@ -91,7 +93,7 @@
   display: flex;
   line-height: 4rem;
   color: white;
-  flex-direction: column;
+  flex-direction: row;
 }
 .titulo h1 {
   margin-bottom: -1rem;
@@ -165,11 +167,8 @@
   background-color: transparent;
   height: 2rem;
   padding: 1rem;
-  justify-content: space-evenly;
-}
-.buttons span {
-  line-height: 28px;
-  color: white;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 #crearpk,
@@ -215,7 +214,7 @@
   padding: 2px;
   height: 32px;
   line-height: 0px;
-  width: 4%;
+  width: 2rem;
   border-radius: 5px;
   font-weight: bold;
   color: white;
@@ -226,6 +225,11 @@
 #anterior:hover,
 #siguiente:hover {
   box-shadow: 0px 0px 3px gray;
+}
+
+#spanPagination {
+  line-height: 28px;
+  color: white;
 }
 
 #delete {
@@ -249,6 +253,113 @@
   box-shadow: 0px 0px 3px gray;
 }
 
+@media (max-width: 838px) {
+  #nav .logic {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #nav .form {
+    line-height: 100px;
+    margin-top: -3rem;
+    margin-left: 1rem;
+    margin-bottom: 2.5rem;
+  }
+}
+@media (max-width: 801px) {
+  #nav .logic {
+    margin-bottom: 5rem;
+  }
+
+  #anterior,
+#siguiente,
+#spanPagination {
+    position: absolute;
+  }
+
+  #anterior {
+    top: 15rem;
+    margin-left: -6.5rem;
+  }
+
+  #spanPagination {
+    top: 15rem;
+    margin-left: -1.5rem;
+  }
+
+  #siguiente {
+    top: 15rem;
+    margin-left: 4rem;
+  }
+}
+@media (max-width: 677px) {
+  #nav {
+    width: 105%;
+  }
+
+  #apidb,
+#types,
+#fuerza,
+#order {
+    position: absolute;
+  }
+
+  #apidb {
+    top: 18rem;
+    margin-left: -9rem;
+  }
+
+  #types {
+    top: 18rem;
+    margin-left: 16rem;
+  }
+
+  #fuerza {
+    top: 18rem;
+    margin-left: 4rem;
+  }
+
+  #order {
+    top: 18rem;
+    margin-left: -20rem;
+  }
+}
+@media (max-width: 375px) {
+  #nav .logic .pokemon {
+    height: 7rem;
+    width: 20rem;
+  }
+
+  #anterior,
+#siguiente,
+#spanPagination {
+    top: 15.5rem;
+  }
+
+  #apidb,
+#types,
+#fuerza,
+#order {
+    top: 18.5rem;
+  }
+
+  #apidb {
+    margin-left: -8rem;
+  }
+
+  #types {
+    margin-left: 16.8rem;
+  }
+
+  #fuerza {
+    margin-left: 5rem;
+  }
+
+  #order {
+    margin-left: -19rem;
+  }
+}
 .spinDiv {
   padding: 10px;
   width: 80%;
@@ -479,71 +590,41 @@
 }
 
 #fondo {
-  height: 100%;
-}
-#fondo #img {
-  height: 100%;
-}
-#fondo #img h2 {
-  margin-left: 3.4rem;
-}
-#fondo #img img {
-  margin-top: 1rem;
-  position: absolute;
-  top: 10rem;
-  left: 23rem;
-  height: 16rem;
-  margin-left: 1rem;
-}
-#fondo #img .containers {
   display: flex;
-  height: 100%;
-  margin: 0px auto;
-  position: absolute;
-  width: 100%;
-  top: -3rem;
-  right: 0rem;
+}
+#fondo .containers {
+  display: flex;
   flex-direction: column;
-  justify-content: center;
-}
-#fondo #img .containers .welcome {
-  margin: 0px auto;
-  font-family: "Nunito";
-  font-weight: bold;
-  color: black;
-  margin-bottom: 11rem;
+  width: 100%;
   text-align: center;
+  align-items: center;
+  line-height: 5rem;
 }
-#fondo #img .containers #link {
-  text-decoration: none;
-}
-#fondo #img .containers #link div {
-  display: flex;
-  justify-content: center;
-  margin: 0px auto;
-}
-#fondo #img .containers #link .home {
+#fondo .containers .home {
   background: #FBCA1F;
   cursor: pointer;
   font-family: inherit;
   padding: 0.6em 1.3em;
-  position: absolute;
-  top: 29rem;
   font-weight: 900;
   font-size: 18px;
   border: 3px solid black;
   border-radius: 0.4em;
   box-shadow: 0.1em 0.1em;
 }
-#fondo #img .containers #link .home:hover {
+#fondo .containers .home:hover {
   transform: translate(-0.05em, -0.05em);
   box-shadow: 0.15em 0.15em;
 }
-#fondo #img .containers #link .home:active {
+#fondo .containers .home:active {
   transform: translate(0.05em, 0.05em);
   box-shadow: 0.05em 0.05em;
 }
 
+@media (min-width: 768px) {
+  #fondo .containers {
+    line-height: 15rem;
+  }
+}
 #about {
   margin-top: 9rem;
   box-shadow: 4px 2px 6px 0px #ccc;

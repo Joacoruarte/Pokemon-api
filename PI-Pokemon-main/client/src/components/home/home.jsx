@@ -94,8 +94,6 @@ const handleInputChange = (event) =>{
   if(loading){  
     return ( 
       <div> 
-        <div className='pokemon'> 
-        </div> 
         <div> 
           <SearchBar
            search={handleSubmit}  
@@ -103,15 +101,15 @@ const handleInputChange = (event) =>{
            name={name}/>
         </div>
         <div className='buttons'> 
-          <button id='anterior' onClick={prevPage}> 
-            ⬅
-          </button> 
-  
-          <span>{state.length === 0 ? 0 : currentPage} / {state.length === 0 ? '-' : pageNumbers.length}</span> 
-  
-          <button id='siguiente' onClick={nextPage}> 
-            ➡
-          </button> 
+            <button id='anterior' onClick={prevPage}> 
+              ⬅
+            </button> 
+    
+            <span id='spanPagination'>{state.length === 0 ? 0 : currentPage} / {state.length === 0 ? '-' : pageNumbers.length}</span> 
+    
+            <button id='siguiente' onClick={nextPage}> 
+              ➡
+            </button> 
   
           <select id='order' defaultValue='order' onChange={(e) => handleOnChange(e)}> 
             <option disabled value='order'>Order</option>
@@ -152,8 +150,6 @@ const handleInputChange = (event) =>{
   }else{ 
     return ( 
       <div> 
-        <div className='pokemon'> 
-        </div> 
         <div> 
           <SearchBar
            search={handleSubmit}  
@@ -165,7 +161,7 @@ const handleInputChange = (event) =>{
             ⬅
           </button> 
   
-          <span>{state.length === 0 ? 0 : currentPage} / {state.length === 0 ? '-' : pageNumbers.length}</span> 
+          <span id='spanPagination'>{state.length === 0 ? 0 : currentPage} / {state.length === 0 ? '-' : pageNumbers.length}</span> 
   
           <button id='siguiente' onClick={nextPage}> 
             ➡
