@@ -7,7 +7,7 @@ router.get('/' , async (req , res) => {
     const {name} = req.query      
     const allData = await utils.dbPokemon() 
     if(name){ 
-      let dataName = allData.filter((e) => e.name.toLowerCase().includes(name.toLowerCase()))
+      let dataName = allData.find((e) => e.name === name)
       if(!dataName) return res.json(null) 
       return res.json(dataName)
     }     
