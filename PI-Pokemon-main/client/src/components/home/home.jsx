@@ -70,12 +70,6 @@ function handleSubmit(event){
 // HANDLER INPUT DE BUSQUEDA  
 const handleInputChange = (event) =>{   
   setName(event.target.value)
-  if(name.length !== 0){ 
-    dispatch(pokemonName(event.target.value))  
-  }
-  if(event.target.value === ''){
-    dispatch(getAllPokemons())
-  }
 }
 
 // HANDLER DEL SELECT DE ORDERS
